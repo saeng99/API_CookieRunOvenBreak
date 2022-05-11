@@ -37,8 +37,10 @@ void CPlayer::Initialize(void)
 
 	m_bJump = false;
 	m_fBeforeJump = false;
-	m_fJumpPower = 10.f;
+	m_fJumpPower = 9.f;
 	m_fGravity = 9.8f;
+	m_fJumpTime = 0.f;
+
 
 	m_eRender = RENDER_GAMEOBJECT;
 
@@ -76,12 +78,12 @@ int CPlayer::Update(void)
 
 void CPlayer::Late_Update(void)
 {
-	CObj::UpdateGravity(m_fGravity);
+	//CObj::UpdateGravity(m_fGravity);
 
-	if (m_bJump)
-	{
-		m_tInfo.fY -= m_fJumpPower * sinf((90.f * PI) / 180.f);
-	}
+	//if (m_bJump)
+	//{
+	//	m_tInfo.fY -= m_fJumpPower * sinf((90.f * PI) / 180.f);
+	//}
 	
 	Motion_Change();
 	Move_Frame();
@@ -135,6 +137,7 @@ void CPlayer::Key_Input(void)
 
 		if (CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, &fY))
 			m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
+
 	}
 
 	else if (GetAsyncKeyState(VK_RIGHT))
@@ -161,13 +164,14 @@ void CPlayer::Key_Input(void)
 		m_eCurState = WALK;
 	}
 
-	else if (CKeyMgr::Get_Instance()->Key_Pressing('A'))
+	else if (CKeyMgr::Get_Instance()->Key_Down('A'))
 	{
 		if (!m_bJump)
 		{
 			m_bJump = true;
-			m_fJumpPower = 10.f;
+			//m_fJumpPower = 10.f;
 			//m_fGTime = 0.f;
+			m_fJumpTime = 0.f;
 			m_pFrameKey = L"Player";
 			m_eCurState = JUMP;
 			//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
@@ -175,10 +179,11 @@ void CPlayer::Key_Input(void)
 
 		else if (m_bJump && !m_fBeforeJump)
 		{
-			m_fJumpPower = 10.f;
-			m_fGTime = 0.f;
+			//m_fJumpPower = 10.f;
+			m_fJumpTime = 0.f;
+			//m_fGTime = 0.f;
 			m_fBeforeJump = true;
-			m_pFrameKey = L"Player";
+			//m_pFrameKey = L"Player";
 			m_eCurState = JUMP;
 		}
 
@@ -190,7 +195,7 @@ void CPlayer::Key_Input(void)
 		m_pFrameKey = L"Player";
 		m_eCurState = SLIDE;
 		//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
-
+		m_tFrame.iFrameStart = 9;
 		return;
 	}
 
@@ -207,21 +212,23 @@ void CPlayer::Jumping(void)
 
 	if (m_bJump)
 	{
-		m_tInfo.fY -= m_fJumpPower * m_fJumpTime - 9.8f * m_fJumpTime * m_fJumpTime * 0.3f;
+		m_tInfo.fY -= m_fJumpPower * m_fJumpTime - 9.8f * m_fJumpTime * m_fJumpTime * 0.35f;
 		m_fJumpTime += 0.1f;
+		m_eCurState = JUMP;
 
 		if (bLineCol && (fY < m_tInfo.fY))
 		{
+			//m_eCurState = WALK;
 			m_bJump = false;
 			m_fBeforeJump = false;
 			m_fJumpTime = 0.f;
 			m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
 		}
 	}
-		else if (bLineCol)
-		{
-			m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
-		}
+	else if (bLineCol)
+	{
+		m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
+	}
 }
 
 void CPlayer::OffSet(void)

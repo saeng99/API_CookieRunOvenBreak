@@ -1,12 +1,13 @@
 #pragma once
 
 #define		WINCX		800
-#define		WINCY		600
+#define		WINCY		450
 
 #define		PI			3.141592f
 
 #define		PURE		= 0
 
+#define		BLOCK_SIZE	100
 
 #define		OBJ_NOEVENT  0
 #define		OBJ_DEAD	 1

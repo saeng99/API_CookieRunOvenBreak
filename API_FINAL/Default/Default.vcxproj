@@ -150,7 +150,13 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CBlock.h" />
+    <ClInclude Include="CFork.h" />
+    <ClInclude Include="CMapEditor.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="CollisionMgr.h" />
+    <ClInclude Include="CThorn.h" />
     <ClInclude Include="Default.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
@@ -188,7 +194,13 @@
   <ItemGroup>
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="CBlock.cpp" />
+    <ClCompile Include="CFork.cpp" />
+    <ClCompile Include="CMapEditor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="CThorn.cpp" />
     <ClCompile Include="Default.cpp" />
     <ClCompile Include="GuideBullet.cpp" />
     <ClCompile Include="KeyMgr.cpp" />

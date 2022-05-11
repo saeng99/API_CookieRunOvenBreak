@@ -103,6 +103,12 @@
     <Filter Include="98. Design\SoundMgr">
       <UniqueIdentifier>{0cac99f0-bdb5-437d-a525-ae3a2ecbc1e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SENI">
+      <UniqueIdentifier>{1b355279-6332-4491-b3d1-d70ded4a4803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SENI\MapEditor">
+      <UniqueIdentifier>{abd8c0b1-1b77-469e-bfca-433b507706e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -219,6 +225,18 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>98. Design\SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CThorn.h">
+      <Filter>SENI</Filter>
+    </ClInclude>
+    <ClInclude Include="CFork.h">
+      <Filter>SENI</Filter>
+    </ClInclude>
+    <ClInclude Include="CMapEditor.h">
+      <Filter>SENI\MapEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="CBlock.h">
+      <Filter>SENI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -307,6 +325,18 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>98. Design\SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CThorn.cpp">
+      <Filter>SENI</Filter>
+    </ClCompile>
+    <ClCompile Include="CFork.cpp">
+      <Filter>SENI</Filter>
+    </ClCompile>
+    <ClCompile Include="CMapEditor.cpp">
+      <Filter>SENI\MapEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlock.cpp">
+      <Filter>SENI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
