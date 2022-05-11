@@ -7,6 +7,9 @@
 #include "ScrollMgr.h"
 #include "TileMgr.h"
 #include "Monster.h"
+#include "CThorn.h"
+#include "CFork.h"
+#include "CBlock.h"
 
 
 CStage::CStage()
@@ -31,9 +34,11 @@ void CStage::Initialize(void)
 	//CTileMgr::Get_Instance()->Load_Tile();
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create());
-	//CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster>::Create());
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CBlock>::Create());
+	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CThorn>::Create());
+	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create());
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven22.bmp", L"Ground");
-
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz.bmp", L"Fire");
 }	
 
 
@@ -57,8 +62,9 @@ void CStage::Render(HDC hDC)
 	int		iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 	HDC		hGroundMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Ground");
+	HDC		hFireMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Fire");
 	
-	BitBlt(hDC, iScrollX, 0, 1619, WINCY, hGroundMemDC, 0, 0, SRCCOPY);
+	BitBlt(hDC, iScrollX, 0, 1212, WINCY, hGroundMemDC, 0, 0, SRCCOPY);
 	/*BitBlt(hDC,							// 복사 받을, 최종적으로 그림을 그릴 DC
 		int(m_tRect.left + iScrollX),	// 2,3 인자 :  복사받을 위치 X, Y
 		int(m_tRect.top),
@@ -69,6 +75,18 @@ void CStage::Render(HDC hDC)
 		0,
 		SRCCOPY);*/						// 출력효과, 그대로 복사 출력
 	
+	GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
+		iScrollX,	// 2,3 인자 :  복사받을 위치 X, Y
+		0,
+		1212,				// 4,5 인자 : 복사받을 가로, 세로 길이
+		WINCY,
+		hFireMemDC,							// 비트맵을 가지고 있는 DC
+		0,	// 비트맵 출력 시작 좌표, X,Y
+		0,
+		1212,				// 복사할 비트맵의 가로, 세로 길이
+		WINCY,
+		RGB(255, 0, 255));			// 제거하고자 하는 색상
+
 	//CTileMgr::Get_Instance()->Render(hDC);
 
 	//CLineMgr::Get_Instance()->Render(hMemDC);

@@ -69,9 +69,9 @@ protected:
 	RENDERID	m_eRender;
 
 protected:
-	float					m_fGTime;
-	bool					m_bOnAir;
-	bool					m_bOnBlock;
+	float				m_fGTime;
+	bool				m_bOnAir;
+	bool				m_bOnBlock;
 
 };
 
