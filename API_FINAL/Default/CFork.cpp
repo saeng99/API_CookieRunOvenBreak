@@ -15,9 +15,9 @@ CFork::~CFork()
 void CFork::Initialize(void)
 {
 	m_tInfo.fX = 600.f;
-	m_tInfo.fY = 165.f;
+	m_tInfo.fY = 160.f;
 
-	m_tInfo.fCX = 88.f;
+	m_tInfo.fCX = 66.f;
 	m_tInfo.fCY = 320.f;
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -37,6 +37,7 @@ int CFork::Update(void)
 
 void CFork::Late_Update(void)
 {
+	m_tInfo.fX -= 4.f;
 }
 
 void CFork::Render(HDC hDC)
@@ -47,15 +48,15 @@ void CFork::Render(HDC hDC)
 	HDC		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(hDC,
-		int(m_tRect.left + iScrollX),
+		int(m_tRect.left - 11 + iScrollX),
 		int(m_tRect.top + iScrollY),
-		int(m_tInfo.fCX),
-		int(m_tInfo.fCY),
+		88,
+		320,
 		hMemDC,
 		0,
 		0,
-		(int)m_tInfo.fCX,
-		(int)m_tInfo.fCY,
+		88,
+		320,
 		RGB(255, 0, 255));
 
 	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));

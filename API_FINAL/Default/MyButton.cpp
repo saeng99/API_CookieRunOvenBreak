@@ -18,8 +18,8 @@ CMyButton::~CMyButton()
 
 void CMyButton::Initialize(void)
 {
-	m_tInfo.fCX = 150.f;
-	m_tInfo.fCY = 150.f;
+	m_tInfo.fCX = 320.f;
+	m_tInfo.fCY = 156.f;
 
 	m_eRender = RENDER_UI;
 }
@@ -44,14 +44,17 @@ void CMyButton::Late_Update(void)
 	{
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_LBUTTON))
 		{
-			if (!lstrcmp(L"Start", m_pFrameKey))
+			if (!lstrcmp(L"StartRun", m_pFrameKey))
+				CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
+
+			/*if (!lstrcmp(L"Start", m_pFrameKey))
 				CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 
 			else if (!lstrcmp(L"Edit", m_pFrameKey))
 				CSceneMgr::Get_Instance()->Scene_Change(SC_EDIT);
 
 			else if (!lstrcmp(L"Exit", m_pFrameKey))
-				DestroyWindow(g_hWnd);
+				DestroyWindow(g_hWnd);*/
 
 			return;
 		}
@@ -79,7 +82,7 @@ void CMyButton::Render(HDC hDC)
 		0,
 		(int)m_tInfo.fCX,				// 복사할 비트맵의 가로, 세로 길이
 		(int)m_tInfo.fCY,
-		RGB(255, 255, 255));			// 제거하고자 하는 색상
+		RGB(255, 0, 255));			// 제거하고자 하는 색상
 
 }
 

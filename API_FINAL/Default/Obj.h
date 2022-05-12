@@ -50,6 +50,7 @@ public:
 protected:
 	void		Update_Rect(void);
 	void		Move_Frame(void);
+	void		MoveMoment_Frame(void);
 
 protected:
 	INFO		m_tInfo;

@@ -237,6 +237,9 @@
     <ClInclude Include="CBlock.h">
       <Filter>SENI</Filter>
     </ClInclude>
+    <ClInclude Include="CComingUpThorn.h">
+      <Filter>SENI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -336,6 +339,9 @@
       <Filter>SENI\MapEditor</Filter>
     </ClCompile>
     <ClCompile Include="CBlock.cpp">
+      <Filter>SENI</Filter>
+    </ClCompile>
+    <ClCompile Include="CComingUpThorn.cpp">
       <Filter>SENI</Filter>
     </ClCompile>
   </ItemGroup>
