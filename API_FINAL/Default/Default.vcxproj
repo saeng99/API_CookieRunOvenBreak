@@ -150,13 +150,17 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CBearJelly.h" />
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CComingUpThorn.h" />
     <ClInclude Include="CFork.h" />
+    <ClInclude Include="CGoldenCoin.h" />
     <ClInclude Include="CMapEditor.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="CNormalJelly.h" />
     <ClInclude Include="CollisionMgr.h" />
+    <ClInclude Include="CSilverCoin.h" />
     <ClInclude Include="CThorn.h" />
     <ClInclude Include="Default.h" />
     <ClInclude Include="Define.h" />
@@ -195,13 +199,17 @@
   <ItemGroup>
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="CBearJelly.cpp" />
     <ClCompile Include="CBlock.cpp" />
     <ClCompile Include="CComingUpThorn.cpp" />
     <ClCompile Include="CFork.cpp" />
+    <ClCompile Include="CGoldenCoin.cpp" />
     <ClCompile Include="CMapEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="CNormalJelly.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="CSilverCoin.cpp" />
     <ClCompile Include="CThorn.cpp" />
     <ClCompile Include="Default.cpp" />
     <ClCompile Include="GuideBullet.cpp" />

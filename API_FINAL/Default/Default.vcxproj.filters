@@ -25,17 +25,11 @@
     <Filter Include="01. Obj\00. Player">
       <UniqueIdentifier>{bc87a0ea-e5c3-4b9c-b118-23af02ef9935}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\01. Bullet">
-      <UniqueIdentifier>{c74ec3a3-edbe-48ed-97c3-c0e21c9225ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="98. Design">
       <UniqueIdentifier>{6d57fc6e-bce3-4072-95ca-66fdfe1f7d9b}</UniqueIdentifier>
     </Filter>
     <Filter Include="98. Design\AbstractFactory">
       <UniqueIdentifier>{46a30c8b-c1ef-4525-821a-e09f38f11e8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\02. Monster">
-      <UniqueIdentifier>{e0ab47df-43ed-4ed6-be54-3523b7b16a3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="01. Obj\03. Mouse">
       <UniqueIdentifier>{8a388e49-470b-4695-bcb9-a7ce03e5c47d}</UniqueIdentifier>
@@ -43,17 +37,8 @@
     <Filter Include="98. Design\CollisionMgr">
       <UniqueIdentifier>{fa05d23f-9bed-4d57-a264-a1373a4d93d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\04. Shield">
-      <UniqueIdentifier>{b37fefac-d240-4ede-b8d0-52e5a644078d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Bullet\00. ScrewBullet">
-      <UniqueIdentifier>{cbfea3ae-fe2b-4fef-87c4-fd8ace5f6f34}</UniqueIdentifier>
-    </Filter>
     <Filter Include="98. Design\ObjMgr">
       <UniqueIdentifier>{b8f3e418-0ee7-45f4-878d-8c37d424702c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Bullet\01. GuideBullet">
-      <UniqueIdentifier>{d12b3d4b-93c0-4c53-b5f0-a89d4e1f69b3}</UniqueIdentifier>
     </Filter>
     <Filter Include="98. Design\LineMgr">
       <UniqueIdentifier>{fec09d62-2538-43f5-8757-fd75139a1004}</UniqueIdentifier>
@@ -91,9 +76,6 @@
     <Filter Include="98. Design\SceneMgr">
       <UniqueIdentifier>{ec002d72-ac40-4e76-9806-1de9a10dc77c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\05. MyButton">
-      <UniqueIdentifier>{5d174640-d014-46b2-ba40-d8af134d665a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\06. Tile">
       <UniqueIdentifier>{0df1c99a-4be2-4da8-b1e7-b092f0b0256e}</UniqueIdentifier>
     </Filter>
@@ -108,6 +90,54 @@
     </Filter>
     <Filter Include="SENI\MapEditor">
       <UniqueIdentifier>{abd8c0b1-1b77-469e-bfca-433b507706e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Obstacle">
+      <UniqueIdentifier>{1f69f69e-29ac-467b-a57b-7fd9699f57ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Jelly">
+      <UniqueIdentifier>{c422d0e0-f75f-4a5e-b6c8-3df8bdd92422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Jelly\00. NormalJelly">
+      <UniqueIdentifier>{a1ca85e5-138f-49ec-9597-96d71b7aa15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Jelly\01. BearJelly">
+      <UniqueIdentifier>{61e56692-b702-4fc8-96bb-e48933900027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Jelly\02. SilverCoin">
+      <UniqueIdentifier>{26def88a-5964-45f9-ad40-16499c904cc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Jelly\03. GoldenCoin">
+      <UniqueIdentifier>{e76edaf1-5cf8-4d68-966a-33c665792c60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Bullet">
+      <UniqueIdentifier>{c74ec3a3-edbe-48ed-97c3-c0e21c9225ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Bullet\00. ScrewBullet">
+      <UniqueIdentifier>{cbfea3ae-fe2b-4fef-87c4-fd8ace5f6f34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Bullet\01. GuideBullet">
+      <UniqueIdentifier>{d12b3d4b-93c0-4c53-b5f0-a89d4e1f69b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\06. Monster">
+      <UniqueIdentifier>{e0ab47df-43ed-4ed6-be54-3523b7b16a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\07. Shield">
+      <UniqueIdentifier>{b37fefac-d240-4ede-b8d0-52e5a644078d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04. MyButton">
+      <UniqueIdentifier>{5d174640-d014-46b2-ba40-d8af134d665a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Obstacle\00. Block">
+      <UniqueIdentifier>{90e238cd-1eea-4867-aacb-0b9a690a6d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Obstacle\01. Thorn">
+      <UniqueIdentifier>{5bdbb497-cb7d-43af-a5ab-c93e255628d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Obstacle\02. ComingUpThorn">
+      <UniqueIdentifier>{c8b9ca7f-5c86-4590-bdd5-9b60580b9932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Obstacle\03. Fork">
+      <UniqueIdentifier>{5241939c-ac29-4d39-ada8-02c1bfb681e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -151,13 +181,13 @@
       <Filter>01. Obj\00. Player</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>01. Obj\01. Bullet</Filter>
+      <Filter>01. Obj\05. Bullet</Filter>
     </ClInclude>
     <ClInclude Include="AbstractFactory.h">
       <Filter>98. Design\AbstractFactory</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>01. Obj\02. Monster</Filter>
+      <Filter>01. Obj\06. Monster</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
       <Filter>01. Obj\03. Mouse</Filter>
@@ -166,16 +196,16 @@
       <Filter>98. Design\CollisionMgr</Filter>
     </ClInclude>
     <ClInclude Include="Shield.h">
-      <Filter>01. Obj\04. Shield</Filter>
+      <Filter>01. Obj\07. Shield</Filter>
     </ClInclude>
     <ClInclude Include="ScrewBullet.h">
-      <Filter>01. Obj\01. Bullet\00. ScrewBullet</Filter>
+      <Filter>01. Obj\05. Bullet\00. ScrewBullet</Filter>
     </ClInclude>
     <ClInclude Include="ObjMgr.h">
       <Filter>98. Design\ObjMgr</Filter>
     </ClInclude>
     <ClInclude Include="GuideBullet.h">
-      <Filter>01. Obj\01. Bullet\01. GuideBullet</Filter>
+      <Filter>01. Obj\05. Bullet\01. GuideBullet</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
       <Filter>98. Design\LineMgr\Line</Filter>
@@ -208,7 +238,7 @@
       <Filter>02. Scene\01. MyMenu</Filter>
     </ClInclude>
     <ClInclude Include="MyButton.h">
-      <Filter>01. Obj\05. MyButton</Filter>
+      <Filter>01. Obj\04. MyButton</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">
       <Filter>02. Scene\03. Stage</Filter>
@@ -225,20 +255,32 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>98. Design\SoundMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CThorn.h">
-      <Filter>SENI</Filter>
-    </ClInclude>
-    <ClInclude Include="CFork.h">
-      <Filter>SENI</Filter>
-    </ClInclude>
     <ClInclude Include="CMapEditor.h">
       <Filter>SENI\MapEditor</Filter>
     </ClInclude>
+    <ClInclude Include="CNormalJelly.h">
+      <Filter>01. Obj\02. Jelly\00. NormalJelly</Filter>
+    </ClInclude>
+    <ClInclude Include="CBearJelly.h">
+      <Filter>01. Obj\02. Jelly\01. BearJelly</Filter>
+    </ClInclude>
+    <ClInclude Include="CGoldenCoin.h">
+      <Filter>01. Obj\02. Jelly\03. GoldenCoin</Filter>
+    </ClInclude>
+    <ClInclude Include="CSilverCoin.h">
+      <Filter>01. Obj\02. Jelly\02. SilverCoin</Filter>
+    </ClInclude>
     <ClInclude Include="CBlock.h">
-      <Filter>SENI</Filter>
+      <Filter>01. Obj\01. Obstacle\00. Block</Filter>
+    </ClInclude>
+    <ClInclude Include="CThorn.h">
+      <Filter>01. Obj\01. Obstacle\01. Thorn</Filter>
     </ClInclude>
     <ClInclude Include="CComingUpThorn.h">
-      <Filter>SENI</Filter>
+      <Filter>01. Obj\01. Obstacle\02. ComingUpThorn</Filter>
+    </ClInclude>
+    <ClInclude Include="CFork.h">
+      <Filter>01. Obj\01. Obstacle\03. Fork</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -258,10 +300,10 @@
       <Filter>01. Obj\00. Player</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>01. Obj\01. Bullet</Filter>
+      <Filter>01. Obj\05. Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>01. Obj\02. Monster</Filter>
+      <Filter>01. Obj\06. Monster</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
       <Filter>01. Obj\03. Mouse</Filter>
@@ -270,16 +312,16 @@
       <Filter>98. Design\CollisionMgr</Filter>
     </ClCompile>
     <ClCompile Include="Shield.cpp">
-      <Filter>01. Obj\04. Shield</Filter>
+      <Filter>01. Obj\07. Shield</Filter>
     </ClCompile>
     <ClCompile Include="ScrewBullet.cpp">
-      <Filter>01. Obj\01. Bullet\00. ScrewBullet</Filter>
+      <Filter>01. Obj\05. Bullet\00. ScrewBullet</Filter>
     </ClCompile>
     <ClCompile Include="ObjMgr.cpp">
       <Filter>98. Design\ObjMgr</Filter>
     </ClCompile>
     <ClCompile Include="GuideBullet.cpp">
-      <Filter>01. Obj\01. Bullet\01. GuideBullet</Filter>
+      <Filter>01. Obj\05. Bullet\01. GuideBullet</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
       <Filter>98. Design\LineMgr\Line</Filter>
@@ -312,7 +354,7 @@
       <Filter>02. Scene\01. MyMenu</Filter>
     </ClCompile>
     <ClCompile Include="MyButton.cpp">
-      <Filter>01. Obj\05. MyButton</Filter>
+      <Filter>01. Obj\04. MyButton</Filter>
     </ClCompile>
     <ClCompile Include="Stage.cpp">
       <Filter>02. Scene\03. Stage</Filter>
@@ -329,20 +371,32 @@
     <ClCompile Include="SoundMgr.cpp">
       <Filter>98. Design\SoundMgr</Filter>
     </ClCompile>
-    <ClCompile Include="CThorn.cpp">
-      <Filter>SENI</Filter>
-    </ClCompile>
-    <ClCompile Include="CFork.cpp">
-      <Filter>SENI</Filter>
-    </ClCompile>
     <ClCompile Include="CMapEditor.cpp">
       <Filter>SENI\MapEditor</Filter>
     </ClCompile>
+    <ClCompile Include="CNormalJelly.cpp">
+      <Filter>01. Obj\02. Jelly\00. NormalJelly</Filter>
+    </ClCompile>
+    <ClCompile Include="CBearJelly.cpp">
+      <Filter>01. Obj\02. Jelly\01. BearJelly</Filter>
+    </ClCompile>
+    <ClCompile Include="CGoldenCoin.cpp">
+      <Filter>01. Obj\02. Jelly\03. GoldenCoin</Filter>
+    </ClCompile>
+    <ClCompile Include="CSilverCoin.cpp">
+      <Filter>01. Obj\02. Jelly\02. SilverCoin</Filter>
+    </ClCompile>
     <ClCompile Include="CBlock.cpp">
-      <Filter>SENI</Filter>
+      <Filter>01. Obj\01. Obstacle\00. Block</Filter>
+    </ClCompile>
+    <ClCompile Include="CThorn.cpp">
+      <Filter>01. Obj\01. Obstacle\01. Thorn</Filter>
     </ClCompile>
     <ClCompile Include="CComingUpThorn.cpp">
-      <Filter>SENI</Filter>
+      <Filter>01. Obj\01. Obstacle\02. ComingUpThorn</Filter>
+    </ClCompile>
+    <ClCompile Include="CFork.cpp">
+      <Filter>01. Obj\01. Obstacle\03. Fork</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

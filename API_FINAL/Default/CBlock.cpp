@@ -41,7 +41,7 @@ int CBlock::Update(void)
 
 void CBlock::Late_Update(void)
 {
-	m_tInfo.fX -= 4.f;
+	//m_tInfo.fX -= 4.f;
 }
 
 void CBlock::Render(HDC hDC)

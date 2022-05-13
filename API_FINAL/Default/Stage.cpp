@@ -11,6 +11,10 @@
 #include "CFork.h"
 #include "CBlock.h"
 #include "CComingUpThorn.h"
+#include "CNormalJelly.h"
+#include "CBearJelly.h"
+#include "CSilverCoin.h"
+#include "CGoldenCoin.h"
 
 
 CStage::CStage()
@@ -77,22 +81,34 @@ void CStage::Initialize(void)
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CBlock>::Create(3850.f, 430.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CBlock>::Create(3950.f, 430.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CThorn>::Create(550.f, 346.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CThorn>::Create(1170.f, 346.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CThorn>::Create(1214.f, 346.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CThorn>::Create(2420.f, 346.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(550.f, 346.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(1170.f, 346.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(1214.f, 346.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(2420.f, 346.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CComingUpThorn>::Create(1640.f, 300.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_THORN, CAbstractFactory<CComingUpThorn>::Create(2720.f, 300.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(1640.f, 300.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(2720.f, 300.f));
+										
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(800.f,160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(888.f,160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(2000.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(2178.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(3088.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(3176.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(3264.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(3362.f, 160.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(800.f,160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(888.f,160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(2000.f, 160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(2178.f, 160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(3088.f, 160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(3176.f, 160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(3264.f, 160.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_FORK, CAbstractFactory<CFork>::Create(3362.f, 160.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(300.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(500.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(525.f, 295.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(570.f, 295.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(605.f, 350.f));
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CBearJelly>::Create(350.f, 352.f));
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CSilverCoin>::Create(400.f, 352.f));
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(450.f, 352.f));
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven222.bmp", L"Ground");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz2.bmp", L"Fire");
@@ -155,6 +171,5 @@ void CStage::Release(void)
 	CTileMgr::Get_Instance()->Destroy_Instance();
 
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_BLOCK);
-	CObjMgr::Get_Instance()->Delete_ID(OBJ_THORN);
-	CObjMgr::Get_Instance()->Delete_ID(OBJ_FORK);
+	CObjMgr::Get_Instance()->Delete_ID(OBJ_JELLY);
 }

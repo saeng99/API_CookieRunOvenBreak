@@ -1,31 +1,28 @@
 #include "stdafx.h"
-#include "CFork.h"
+#include "CBearJelly.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 
-CFork::CFork()
+CBearJelly::CBearJelly()
 {
 }
 
-CFork::~CFork()
+CBearJelly::~CBearJelly()
 {
-	Release();
+    Release();
 }
 
-void CFork::Initialize(void)
+void CBearJelly::Initialize(void)
 {
-	m_tInfo.fX = 600.f;
-	m_tInfo.fY = 160.f;
-
-	m_tInfo.fCX = 66.f;
-	m_tInfo.fCY = 320.f;
+	m_tInfo.fCX = 26.f;
+	m_tInfo.fCY = 26.f;
 
 	m_eRender = RENDER_GAMEOBJECT;
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Monster/Fork2.bmp", L"Fork");
-	m_pFrameKey = L"Fork";
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Item/BearJelly.bmp", L"BearJelly");
+	m_pFrameKey = L"BearJelly";
 }
 
-int CFork::Update(void)
+int CBearJelly::Update(void)
 {
 	if (m_bDead)
 		return OBJ_DEAD;
@@ -35,34 +32,35 @@ int CFork::Update(void)
 	return OBJ_NOEVENT;
 }
 
-void CFork::Late_Update(void)
+void CBearJelly::Late_Update(void)
 {
 	//m_tInfo.fX -= 4.f;
 }
 
-void CFork::Render(HDC hDC)
+void CBearJelly::Render(HDC hDC)
 {
 	int		iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int		iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 	HDC		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
+	// 젤리 업그레이드의 경우 바뀌게 설정필요
+
 	GdiTransparentBlt(hDC,
-		int(m_tRect.left - 11 + iScrollX),
-		int(m_tRect.top + iScrollY),
-		88,
-		320,
+		int(m_tRect.left - 5 + iScrollX),
+		int(m_tRect.top - 5 + iScrollY),
+		32,
+		32,
 		hMemDC,
 		0,
 		0,
-		88,
-		320,
+		32,
+		32,
 		RGB(255, 0, 255));
 
 	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
 }
 
-
-void CFork::Release(void)
+void CBearJelly::Release(void)
 {
 }

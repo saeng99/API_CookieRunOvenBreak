@@ -25,7 +25,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize(void)
 {
-	m_tInfo.fX = 100.f;
+	m_tInfo.fX = 130.f;
 	m_tInfo.fY = 345.f;
 
 	m_tInfo.fCX = 60.f;
