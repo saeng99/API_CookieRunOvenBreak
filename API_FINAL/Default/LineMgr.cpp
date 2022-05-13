@@ -18,7 +18,7 @@ void CLineMgr::Initialize(void)
 	//Load_Line();
 	LINEPOINT	tLine[2]{
 		{ 0.f, 380.f },
-		{ 1200.f, 380.f }
+		{ 2000.f, 380.f }
 	};
 
 	m_LineList.push_back(new CLine(tLine[0], tLine[1]));
@@ -26,8 +26,8 @@ void CLineMgr::Initialize(void)
 
 void CLineMgr::Render(HDC hDC)
 {
-	for (auto& iter : m_LineList)
-		iter->Render(hDC);
+	/*for (auto& iter : m_LineList)
+		iter->Render(hDC);*/
 }
 
 void CLineMgr::Release(void)

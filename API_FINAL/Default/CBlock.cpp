@@ -16,9 +16,6 @@ CBlock::~CBlock()
 
 void CBlock::Initialize(void)
 {
-	m_tInfo.fX = 50.f;		// 중점 X
-	m_tInfo.fY = 430.f;		// 중점 Y
-
 	m_tInfo.fCX = 100.f;
 	m_tInfo.fCY = 100.f;
 
@@ -44,6 +41,7 @@ int CBlock::Update(void)
 
 void CBlock::Late_Update(void)
 {
+	//m_tInfo.fX -= 4.f;
 }
 
 void CBlock::Render(HDC hDC)

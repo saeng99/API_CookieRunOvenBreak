@@ -1,28 +1,28 @@
 #include "stdafx.h"
-#include "ObjMgr.h"
+#include "CJellyMgr.h"
 #include "CollisionMgr.h"
 
-CObjMgr* CObjMgr::m_pInstance = nullptr;
+CJellyMgr* CJellyMgr::m_pInstance = nullptr;
 
-CObjMgr::CObjMgr()
+CJellyMgr::CJellyMgr()
 {
 }
 
 
-CObjMgr::~CObjMgr()
+CJellyMgr::~CJellyMgr()
 {
 	Release();
 }
 
-CObj* CObjMgr::Get_Target(OBJID eID, CObj* pObj)
+/*CJelly* CJellyMgr::Get_Target(OBJID eID, CObj* pObj)
 {
-	if (m_ObjList[eID].empty())
+	if (m_JellyList[eID].empty())
 		return nullptr;
 
-	CObj*		pTarget = nullptr;
+	CJelly* pTarget = nullptr;
 	float		fDistance = 0.f;
-	
-	for (auto& iter : m_ObjList[eID])
+
+	for (auto& iter : m_JellyList[eID])
 	{
 		if (iter->Get_Dead())
 			continue;
@@ -38,31 +38,31 @@ CObj* CObjMgr::Get_Target(OBJID eID, CObj* pObj)
 			fDistance = fDiagonal;
 		}
 	}
-		
-	return pTarget;
-}
 
-void CObjMgr::Add_Object(OBJID eID, CObj * pObj)
+	return pTarget;
+}*/
+
+void CJellyMgr::Add_Object(JELLYID eID, CJellyMgr* pJelly)
 {
-	if ((eID >= OBJ_END) || (nullptr == pObj))
+	if ((eID >= JELLY_END) || (nullptr == pJelly))
 		return;
 
-	m_ObjList[eID].push_back(pObj);
+	m_JellyList[eID].push_back(pJelly);
 }
 
-int CObjMgr::Update(void)
+int CJellyMgr::Update(void)
 {
 	for (int i = 0; i < OBJ_END; ++i)
 	{
-		for (auto& iter = m_ObjList[i].begin();
-			iter != m_ObjList[i].end(); )
+		for (auto& iter = m_JellyList[i].begin();
+			iter != m_JellyList[i].end(); )
 		{
 			int iResult = (*iter)->Update();
 
 			if (OBJ_DEAD == iResult)
 			{
-				Safe_Delete<CObj*>(*iter);
-				iter = m_ObjList[i].erase(iter);
+				Safe_Delete<CJellyMgr*>(*iter);
+				iter = m_JellyList[i].erase(iter);
 			}
 			else
 				++iter;
@@ -72,24 +72,24 @@ int CObjMgr::Update(void)
 	return 0;
 }
 
-void CObjMgr::Late_Update(void)
+void CJellyMgr::Late_Update(void)
 {
 	for (int i = 0; i < OBJ_END; ++i)
 	{
-		for (auto& iter : m_ObjList[i])
+		for (auto& iter : m_JellyList[i])
 		{
 			iter->Late_Update();
 
-			if (m_ObjList[i].empty())
+			if (m_JellyList[i].empty())
 				break;
 
-			RENDERID eRender = iter->Get_RenderID();
+			RENDERID eRender = iter->Get_RenderID2();
 			m_RenderSort[eRender].push_back(iter);
 		}
 	}
 
-	CCollisionMgr::Collision_RectEx(m_ObjList[OBJ_BLOCK], m_ObjList[OBJ_PLAYER]);
-	CCollisionMgr::Collision_Rect(m_ObjList[OBJ_JELLY], m_ObjList[OBJ_PLAYER]);
+	//CCollisionMgr::Collision_RectEx(m_ObjList[OBJ_FORK], m_ObjList[OBJ_PLAYER]);
+	//CCollisionMgr::Collision_RectEx(m_ObjList[OBJ_THORN], m_ObjList[OBJ_PLAYER]);
 	//CCollisionMgr::Collision_Sphere(m_ObjList[OBJ_MONSTER], m_ObjList[OBJ_BULLET]);
 }
 
@@ -99,7 +99,7 @@ bool		CompareY(T Dest, T Sour)
 	return Dest->Get_Info().fY < Sour->Get_Info().fY;
 }
 
-void CObjMgr::Render(HDC hDC)
+void CJellyMgr::Render(HDC hDC)
 {
 	/*for (int i = 0; i < OBJ_END; ++i)
 	{
@@ -120,21 +120,21 @@ void CObjMgr::Render(HDC hDC)
 
 }
 
-void CObjMgr::Release(void)
+void CJellyMgr::Release(void)
 {
 	for (int i = 0; i < OBJ_END; ++i)
 	{
-		for (auto& iter : m_ObjList[i])
-			Safe_Delete<CObj*>(iter);
+		for (auto& iter : m_JellyList[i])
+			Safe_Delete<CJellyMgr*>(iter);
 
-		m_ObjList[i].clear();
+		m_JellyList[i].clear();
 	}
 }
 
-void CObjMgr::Delete_ID(OBJID eID)
+void CJellyMgr::Delete_ID(JELLYID eID)
 {
-	for (auto& iter : m_ObjList[eID])
+	for (auto& iter : m_JellyList[eID])
 		Safe_Delete(iter);
 
-	m_ObjList[eID].clear();
+	m_JellyList[eID].clear();
 }

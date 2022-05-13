@@ -1,0 +1,71 @@
+#include "stdafx.h"
+#include "CSilverCoin.h"
+#include "BmpMgr.h"
+#include "ScrollMgr.h"
+
+CSilverCoin::CSilverCoin()
+{
+}
+
+CSilverCoin::~CSilverCoin()
+{
+    Release();
+}
+
+void CSilverCoin::Initialize(void)
+{
+	m_tInfo.fCX = 23.f;
+	m_tInfo.fCY = 23.f;
+
+	m_eRender = RENDER_GAMEOBJECT;
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Item/SilverCoin.bmp", L"SilverCoin");
+	m_pFrameKey = L"SilverCoin";
+
+	m_tFrame.iFrameStart = 0;
+	m_tFrame.iFrameEnd = 3;
+	m_tFrame.iMotion = 0;
+	m_tFrame.dwSpeed = 180;
+	m_tFrame.dwTime = GetTickCount();
+}
+
+int CSilverCoin::Update(void)
+{
+	if (m_bDead)
+		return OBJ_DEAD;
+
+	Update_Rect();
+
+	return OBJ_NOEVENT;
+}
+
+void CSilverCoin::Late_Update(void)
+{
+	//m_tInfo.fX -= 4.f;
+	Move_Frame();
+}
+
+void CSilverCoin::Render(HDC hDC)
+{
+	int		iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+	int		iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	HDC		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
+
+	GdiTransparentBlt(hDC,
+		int(m_tRect.left - 3 + iScrollX),
+		int(m_tRect.top - 3 + iScrollY),
+		29,
+		29,
+		hMemDC,
+		m_tFrame.iFrameStart * 29,
+		m_tFrame.iMotion * 29,
+		29,
+		29,
+		RGB(255, 0, 255));
+
+	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
+}
+
+void CSilverCoin::Release(void)
+{
+}

@@ -25,11 +25,11 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize(void)
 {
-	m_tInfo.fX = 100.f;
-	m_tInfo.fY = 300.f;
+	m_tInfo.fX = 130.f;
+	m_tInfo.fY = 345.f;
 
-	m_tInfo.fCX = 150.f;
-	m_tInfo.fCY = 150.f;
+	m_tInfo.fCX = 60.f;
+	m_tInfo.fCY = 70.f;
 
 	m_fSpeed = 5.f;
 
@@ -49,8 +49,8 @@ void CPlayer::Initialize(void)
 	m_pFrameKey = L"Player";
 
 	m_tFrame.iFrameStart = 0;
-	m_tFrame.iFrameEnd = 3;
-	m_tFrame.iMotion = 0;
+	m_tFrame.iFrameEnd = 8;
+	m_tFrame.iMotion = 1;
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
 
@@ -105,19 +105,38 @@ void CPlayer::Render(HDC hDC)
 		0,								// 7, 8인자 : 비트맵을 출력할 시작 좌표, X,Y
 		0, 
 		SRCCOPY);*/						// 출력효과, 그대로 복사 출력
-
-	GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
-			int(m_tRect.left + iScrollX),	// 2,3 인자 :  복사받을 위치 X, Y
-			int(m_tRect.top + iScrollY),
-			int(m_tInfo.fCX),				// 4,5 인자 : 복사받을 가로, 세로 길이
-			int(m_tInfo.fCY),
+	if (m_eCurState == SLIDE)
+	{
+		GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
+			int(m_tRect.left - 45 + iScrollX),	// 2,3 인자 :  복사받을 위치 X, Y
+			int(m_tRect.top - 104 + iScrollY),
+			150,				// 4,5 인자 : 복사받을 가로, 세로 길이
+			150,
 			hMemDC,							// 비트맵을 가지고 있는 DC
-			m_tFrame.iFrameStart * (int)m_tInfo.fCX,								// 비트맵 출력 시작 좌표, X,Y
-			m_tFrame.iMotion * (int)m_tInfo.fCY,
-			(int)m_tInfo.fCX,				// 복사할 비트맵의 가로, 세로 길이
-			(int)m_tInfo.fCY,
+			m_tFrame.iFrameStart * 150,								// 비트맵 출력 시작 좌표, X,Y
+			m_tFrame.iMotion * 150,
+			150,				// 복사할 비트맵의 가로, 세로 길이
+			150,
 			RGB(0, 128, 255));			// 제거하고자 하는 색상
-				
+	}
+	
+	else
+	{
+		GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
+			int(m_tRect.left - 45 + iScrollX),	// 2,3 인자 :  복사받을 위치 X, Y
+			int(m_tRect.top - 80 + iScrollY),
+			150,				// 4,5 인자 : 복사받을 가로, 세로 길이
+			150,
+			hMemDC,							// 비트맵을 가지고 있는 DC
+			m_tFrame.iFrameStart * 150,								// 비트맵 출력 시작 좌표, X,Y
+			m_tFrame.iMotion * 150,
+			150,				// 복사할 비트맵의 가로, 세로 길이
+			150,
+			RGB(0, 128, 255));			// 제거하고자 하는 색상
+	}
+
+	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
+
 }
 void CPlayer::Release(void)
 {
@@ -196,11 +215,13 @@ void CPlayer::Key_Input(void)
 		m_eCurState = SLIDE;
 		//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
 		m_tFrame.iFrameStart = 9;
+		m_tInfo.fCY = 46.f;
 		return;
 	}
 
 	else
 		m_eCurState = WALK;
+		m_tInfo.fCY = 70.f;
 
 }
 
