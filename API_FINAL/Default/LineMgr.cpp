@@ -18,7 +18,7 @@ void CLineMgr::Initialize(void)
 	//Load_Line();
 	LINEPOINT	tLine[2]{
 		{ 0.f, 380.f },
-		{ 2000.f, 380.f }
+		{ 7000.f, 380.f }
 	};
 
 	m_LineList.push_back(new CLine(tLine[0], tLine[1]));
