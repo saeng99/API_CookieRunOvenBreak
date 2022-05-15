@@ -99,16 +99,44 @@ void CStage::Initialize(void)
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(3362.f, 160.f));
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(300.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(340.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(380.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(420.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(460.f, 350.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(500.f, 350.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(525.f, 295.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(570.f, 295.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(605.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(520.f, 310.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(550.f, 280.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(580.f, 310.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(600.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(640.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(680.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(720.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(760.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(800.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(840.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(880.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(920.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(960.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1000.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1040.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1080.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1120.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1140.f, 280.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1170.f, 230.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1210.f, 230.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1240.f, 280.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1260.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1300.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1340.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1380.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1420.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1460.f, 350.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CBearJelly>::Create(350.f, 352.f));
+	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CBearJelly>::Create(350.f, 352.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CSilverCoin>::Create(400.f, 352.f));
+	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CSilverCoin>::Create(400.f, 352.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(450.f, 352.f));
+	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(450.f, 352.f));
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven222.bmp", L"Ground");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz2.bmp", L"Fire");
