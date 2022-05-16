@@ -18,6 +18,10 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+	int Get_Hp() { return m_hp; }
+	int Get_MaxHp() { return m_maxhp; }
+
+
 private:
 	void		Key_Input(void);
 	void		Jumping(void);
@@ -25,7 +29,7 @@ private:
 	void		Motion_Change(void);
 
 public:
-	virtual void OnCollision(DIRECTION eDir, CObj* other);
+	virtual void OnCollision(CObj* _pOtherObj) override;
 
 private:
 	float					m_fDiagonal;
@@ -37,6 +41,8 @@ private:
 
 	STATE					m_ePreState;
 	STATE					m_eCurState;
+	int		m_hp;
+	int		m_maxhp;
 
 };
 

@@ -40,7 +40,7 @@ int CBearJelly::Update(void)
 
 void CBearJelly::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
+	m_tInfo.fX -= 4.f;
 
 	Move_Frame();
 }

@@ -19,6 +19,7 @@ public:
 	void		Release(void);
 
 	SCENEID		Get_SceneID(void) { return m_eCurScene; }
+	//static void SetScene(SCENEID eScene) { m_eCurScene = eScene; }
 
 public:
 	static		CSceneMgr*		Get_Instance(void)

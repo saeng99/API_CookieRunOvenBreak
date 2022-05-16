@@ -9,6 +9,7 @@ CObj::CObj()
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	ZeroMemory(&m_tRect, sizeof(RECT));
 	ZeroMemory(&m_tFrame, sizeof(FRAME));
+	m_pTarget = nullptr;
 }
 
 CObj::~CObj()

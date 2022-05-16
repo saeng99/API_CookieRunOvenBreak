@@ -139,6 +139,18 @@
     <Filter Include="01. Obj\01. Obstacle\03. Fork">
       <UniqueIdentifier>{5241939c-ac29-4d39-ada8-02c1bfb681e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\08. HPBar">
+      <UniqueIdentifier>{ce61c401-ca7c-47b0-a39c-fee4338c05a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\09. Item">
+      <UniqueIdentifier>{b75e2e9a-fb1f-44ba-b43c-1ec875cfe385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\09. Item\00. HPPotion">
+      <UniqueIdentifier>{7075f00a-c9cb-42ce-9599-fe9ef1e6f5fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. Design\GameMgr">
+      <UniqueIdentifier>{c9b4f11b-aa9d-4cf1-9f10-0ed48a5529a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -282,6 +294,15 @@
     <ClInclude Include="CFork.h">
       <Filter>01. Obj\01. Obstacle\03. Fork</Filter>
     </ClInclude>
+    <ClInclude Include="CHPBar.h">
+      <Filter>01. Obj\08. HPBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CHPPotion.h">
+      <Filter>01. Obj\09. Item\00. HPPotion</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameMgr.h">
+      <Filter>98. Design\GameMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -397,6 +418,15 @@
     </ClCompile>
     <ClCompile Include="CFork.cpp">
       <Filter>01. Obj\01. Obstacle\03. Fork</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPBar.cpp">
+      <Filter>01. Obj\08. HPBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPPotion.cpp">
+      <Filter>01. Obj\09. Item\00. HPPotion</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameMgr.cpp">
+      <Filter>98. Design\GameMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

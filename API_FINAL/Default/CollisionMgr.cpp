@@ -36,7 +36,7 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dest, list<CObj*> _Sour)
 		for (auto& Sour : _Sour)
 		{
 			float	fX = 0.f, fY = 0.f;
-
+			
 			if (Check_Rect(Dest, Sour, &fX, &fY))
 			{
  			/*	Dest->Set_Dead();
@@ -64,7 +64,10 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dest, list<CObj*> _Sour)
 					else
 						Sour->Set_PosX(fX);
 				}
-
+				// 지금은 장애물의 x좌표로 플레이어의 좌표가 고정되어있는 상태
+				// 플레이어가 충돌을 했을때 함수를 만들어서 그 함수에 조건을 넣으면 됨 (속도 감소)
+				// 캐스팅이 너무 어려우면 .. 그냥 캐스팅 해야함
+				// 충돌처리 하는걸 만들어도 됨 (그게 더 어려울수도)
 			}
 		}
 	}

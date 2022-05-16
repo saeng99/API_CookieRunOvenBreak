@@ -154,7 +154,10 @@
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CComingUpThorn.h" />
     <ClInclude Include="CFork.h" />
+    <ClInclude Include="CGameMgr.h" />
     <ClInclude Include="CGoldenCoin.h" />
+    <ClInclude Include="CHPBar.h" />
+    <ClInclude Include="CHPPotion.h" />
     <ClInclude Include="CMapEditor.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -203,7 +206,10 @@
     <ClCompile Include="CBlock.cpp" />
     <ClCompile Include="CComingUpThorn.cpp" />
     <ClCompile Include="CFork.cpp" />
+    <ClCompile Include="CGameMgr.cpp" />
     <ClCompile Include="CGoldenCoin.cpp" />
+    <ClCompile Include="CHPBar.cpp" />
+    <ClCompile Include="CHPPotion.cpp" />
     <ClCompile Include="CMapEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>

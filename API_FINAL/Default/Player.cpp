@@ -10,6 +10,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 #include "SoundMgr.h"
+#include "SceneMgr.h"
 
 float	g_fSound = 1.f;
 
@@ -32,12 +33,14 @@ void CPlayer::Initialize(void)
 	m_tInfo.fCY = 70.f;
 
 	m_fSpeed = 5.f;
+	m_tStatInfo.iMaxHp = 100;
+	m_tStatInfo.iHp = m_tStatInfo.iMaxHp;
 
 	m_fDiagonal = 100.f;
 
 	m_bJump = false;
 	m_fBeforeJump = false;
-	m_fJumpPower = 9.f;
+	m_fJumpPower = 9.3f;
 	m_fGravity = 9.8f;
 	m_fJumpTime = 0.f;
 
@@ -72,7 +75,10 @@ int CPlayer::Update(void)
 
 	// 모든 연산이 끝난 뒤에 최종적인 좌표를 완성
 	Update_Rect();
+	m_tStatInfo.iHp -= 0.04f;
 
+	m_hp = m_tStatInfo.iHp;
+	m_maxhp = m_tStatInfo.iMaxHp;
 	return OBJ_NOEVENT;
 }
 
@@ -84,7 +90,7 @@ void CPlayer::Late_Update(void)
 	//{
 	//	m_tInfo.fY -= m_fJumpPower * sinf((90.f * PI) / 180.f);
 	//}
-	
+
 	Motion_Change();
 	Move_Frame();
 }
@@ -169,21 +175,17 @@ void CPlayer::Key_Input(void)
 			m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
 	}
 
-	else if (GetAsyncKeyState(VK_UP))
+	else if (CKeyMgr::Get_Instance()->Key_Pressing(VK_DOWN))
 	{
-		m_tInfo.fY -= m_fSpeed;
 		m_pFrameKey = L"Player";
-		m_eCurState = WALK;
+		m_eCurState = SLIDE;
+		//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
+		m_tFrame.iFrameStart = 9;
+		m_tInfo.fCY = 46.f;
+		return;
 	}
 
-	else if (GetAsyncKeyState(VK_DOWN))
-	{
-		m_tInfo.fY += m_fSpeed;
-		m_pFrameKey = L"Player";
-		m_eCurState = WALK;
-	}
-
-	else if (CKeyMgr::Get_Instance()->Key_Down('A'))
+	else if (CKeyMgr::Get_Instance()->Key_Down(VK_SPACE))
 	{
 		if (!m_bJump)
 		{
@@ -206,16 +208,6 @@ void CPlayer::Key_Input(void)
 			m_eCurState = JUMP;
 		}
 
-		return;
-	}
-
-	else if (CKeyMgr::Get_Instance()->Key_Pressing('D'))
-	{
-		m_pFrameKey = L"Player";
-		m_eCurState = SLIDE;
-		//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
-		m_tFrame.iFrameStart = 9;
-		m_tInfo.fCY = 46.f;
 		return;
 	}
 
@@ -334,45 +326,19 @@ void CPlayer::Motion_Change(void)
 	}
 }
 
-void CPlayer::OnCollision(DIRECTION eDir, CObj* other)
+void CPlayer::OnCollision(CObj* _pOtherObj)
 {
-	switch (eDir)
+	statInfo& GetMonster = _pOtherObj->Get_StatInfo();
+
+	m_tStatInfo.iHp -= GetMonster.iAt;
+
+	if (m_tStatInfo.iHp <= 0)
 	{
-	case DIR_UP:
-
-		/*if (other->CompareTag("Monster"))
-		{
-			m_fJumpPower *= 0.9f;
-			m_fGTime = 0.f;
-			m_fGravity = 9.8f;
-		}
-		else
-		{
-			m_bOnBlock = true;
-			m_bJump = false;
-			m_fGravity = 9.8f;
-		}
-		break;*/
-
-	case DIR_DOWN:
-		m_fJumpPower = 0.f;
-		break;
-
-	case DIR_LEFT:
-		/*if (other->CompareTag("Monster"))
-		{
-
-		}*/
-		break;
-
-	case DIR_RIGHT:
-		/*if (other->CompareTag("Monster"))
-		{
-			//PostQuitMessage(0);
-		}*/
-		break;
-
-	default:
-		break;
+		Set_Dead();
+		m_eCurState = DEAD;
+		//CMonster::ST_Point = 0;
+		//CSceneMgr::SetScene(SC_MENU);
 	}
 }
+
+

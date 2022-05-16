@@ -29,6 +29,7 @@ public:
 
 	const INFO&		Get_Info(void) const { return m_tInfo; }
 	const RECT&		Get_Rect(void) const { return m_tRect; }
+	statInfo&		Get_StatInfo(void)	 { return m_tStatInfo; }
 
 	const RENDERID	Get_RenderID(void) const { return m_eRender;  }
 
@@ -45,7 +46,7 @@ public:
 	bool CompareTag(string _Tag);
 	void SetTag(string _Tag);
 
-	virtual	void	OnCollision(DIRECTION eDir, CObj* other) {};
+	virtual		void	OnCollision(CObj* _pOtherObj) {};
 
 protected:
 	void		Update_Rect(void);
@@ -56,6 +57,7 @@ protected:
 	INFO		m_tInfo;
 	RECT		m_tRect;
 	FRAME		m_tFrame;
+	statInfo    m_tStatInfo;
 
 	float		m_fSpeed;
 	float		m_fAngle;

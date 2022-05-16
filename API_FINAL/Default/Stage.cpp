@@ -15,7 +15,8 @@
 #include "CBearJelly.h"
 #include "CSilverCoin.h"
 #include "CGoldenCoin.h"
-
+#include "CHPBar.h"
+#include "CHPPotion.h"
 
 CStage::CStage()
 {
@@ -37,6 +38,7 @@ void CStage::Initialize(void)
 	//CLineMgr::Get_Instance()->Initialize();
 
 	//CTileMgr::Get_Instance()->Load_Tile();
+	CObjMgr::Get_Instance()->Add_Object(OBJ_HPBAR, CAbstractFactory<CHPBar>::Create());
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create());
 
@@ -132,11 +134,13 @@ void CStage::Initialize(void)
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1420.f, 350.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CNormalJelly>::Create(1460.f, 350.f));
 
-	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CBearJelly>::Create(350.f, 352.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CBearJelly>::Create(200.f, 352.f));
 
-	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CSilverCoin>::Create(400.f, 352.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CSilverCoin>::Create(240.f, 352.f));
 
-	//CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(450.f, 352.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(280.f, 352.f));
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BOOSTER, CAbstractFactory<CHPPotion>::Create(280.f, 350.f));
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven222.bmp", L"Ground");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz2.bmp", L"Fire");
@@ -200,4 +204,6 @@ void CStage::Release(void)
 
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_BLOCK);
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_JELLY);
+	CObjMgr::Get_Instance()->Delete_ID(OBJ_HPBAR);
+	CObjMgr::Get_Instance()->Delete_ID(OBJ_BOOSTER);
 }

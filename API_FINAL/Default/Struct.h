@@ -9,6 +9,12 @@ typedef	struct tagInfo
 
 }INFO;
 
+typedef struct statInfo
+{
+	float		iHp;
+	float		iMaxHp;
+	float		iAt;
+};
 
 typedef	struct	tagLinePoint 
 {
