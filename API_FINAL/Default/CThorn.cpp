@@ -2,6 +2,7 @@
 #include "CThorn.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "Player.h"
 
 CThorn::CThorn()
 {
@@ -34,7 +35,7 @@ int CThorn::Update(void)
 
 void CThorn::Late_Update(void)
 {
-	m_tInfo.fX-= 4.f;
+	//m_tInfo.fX-= 4.f;
 }
 
 void CThorn::Render(HDC hDC)
@@ -61,4 +62,12 @@ void CThorn::Render(HDC hDC)
 
 void CThorn::Release(void)
 {
+}
+
+void CThorn::OnCollision(CObj* other)
+{
+	if (other->CompareTag("player"))
+	{
+		dynamic_cast<CPlayer*>(other)->DownLife();
+	}
 }

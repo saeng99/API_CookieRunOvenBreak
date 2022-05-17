@@ -2,6 +2,7 @@
 #include "CHPPotion.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "Player.h"
 
 CHPPotion::CHPPotion()
 {
@@ -39,7 +40,7 @@ int CHPPotion::Update(void)
 
 void CHPPotion::Late_Update(void)
 {
-	m_tInfo.fX -= 4.f;
+	//m_tInfo.fX -= 4.f;
 
 	Move_Frame();
 }
@@ -66,4 +67,13 @@ void CHPPotion::Render(HDC hDC)
 
 void CHPPotion::Release(void)
 {
+}
+
+void CHPPotion::OnCollision(CObj* other)
+{
+	Set_Dead();
+	if (other->CompareTag("player"))
+	{
+		dynamic_cast<CPlayer*>(other)->UpLife();
+	}
 }

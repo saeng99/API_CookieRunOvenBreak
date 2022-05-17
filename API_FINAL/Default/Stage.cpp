@@ -140,7 +140,7 @@ void CStage::Initialize(void)
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(280.f, 352.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BOOSTER, CAbstractFactory<CHPPotion>::Create(280.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BOOSTER, CAbstractFactory<CHPPotion>::Create(50.f, 350.f));
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven222.bmp", L"Ground");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz2.bmp", L"Fire");

@@ -46,7 +46,7 @@ public:
 	bool CompareTag(string _Tag);
 	void SetTag(string _Tag);
 
-	virtual		void	OnCollision(CObj* _pOtherObj) {};
+	virtual		void	OnCollision(CObj* other) {};
 
 protected:
 	void		Update_Rect(void);

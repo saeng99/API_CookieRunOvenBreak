@@ -20,6 +20,7 @@ public:
 	void		Release(void);
 
 	void		Delete_ID(OBJID eID);
+	void		SetHPBar(float fHPBar) { m_fHPBar = fHPBar; }
 
 private:
 	list<CObj*>	m_ObjList[OBJ_END];
@@ -47,6 +48,8 @@ public:
 private:
 	static CObjMgr*			m_pInstance;
 	list<CObj*>				m_RenderSort[RENDER_END];
+
+	float m_fHPBar;
 
 };
 
