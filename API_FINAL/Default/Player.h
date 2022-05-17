@@ -21,6 +21,8 @@ public:
 	int Get_Hp() { return m_hp; }
 	int Get_MaxHp() { return m_maxhp; }
 
+	void		UpLife();
+	void		DownLife();
 
 private:
 	void		Key_Input(void);
@@ -28,8 +30,9 @@ private:
 	void		OffSet(void);
 	void		Motion_Change(void);
 
+
 public:
-	virtual void OnCollision(CObj* _pOtherObj) override;
+	virtual void OnCollision(CObj* other) override;
 
 private:
 	float					m_fDiagonal;

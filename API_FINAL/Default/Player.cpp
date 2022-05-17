@@ -37,6 +37,7 @@ void CPlayer::Initialize(void)
 	m_tStatInfo.iHp = m_tStatInfo.iMaxHp;
 
 	m_fDiagonal = 100.f;
+	m_Tag = "player";
 
 	m_bJump = false;
 	m_fBeforeJump = false;
@@ -65,7 +66,7 @@ int CPlayer::Update(void)
 {
 	if (m_bDead)
 		return OBJ_DEAD;
-
+	
 	// 연산을 진행
 	Key_Input();
 	Jumping();
@@ -326,17 +327,39 @@ void CPlayer::Motion_Change(void)
 	}
 }
 
-void CPlayer::OnCollision(CObj* _pOtherObj)
+void CPlayer::UpLife()
 {
-	statInfo& GetMonster = _pOtherObj->Get_StatInfo();
+	m_tStatInfo.iHp += 10.f;
+	CObjMgr::Get_Instance()->SetHPBar(m_tStatInfo.iHp);
 
-	m_tStatInfo.iHp -= GetMonster.iAt;
+	if (0 >= m_tStatInfo.iHp)
+	{
+		Set_Dead();
+		m_eCurState = DEAD;
+		return;
+	}
+}
 
+void CPlayer::DownLife()
+{
+	m_tStatInfo.iHp -= 5.f;
+	CObjMgr::Get_Instance()->SetHPBar(m_tStatInfo.iHp);
+	m_eCurState = HIT;
+
+	if (0 >= m_tStatInfo.iHp)
+	{
+		Set_Dead();
+		m_eCurState = DEAD;
+		return;
+	}
+}
+
+void CPlayer::OnCollision(CObj* other)
+{
 	if (m_tStatInfo.iHp <= 0)
 	{
 		Set_Dead();
 		m_eCurState = DEAD;
-		//CMonster::ST_Point = 0;
 		//CSceneMgr::SetScene(SC_MENU);
 	}
 }

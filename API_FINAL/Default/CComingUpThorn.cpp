@@ -2,6 +2,7 @@
 #include "CComingUpThorn.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "Player.h"
 
 CComingUpThorn::CComingUpThorn()
 {
@@ -40,7 +41,7 @@ int CComingUpThorn::Update(void)
 
 void CComingUpThorn::Late_Update(void)
 {
-	m_tInfo.fX -= 4.f;
+	//m_tInfo.fX -= 4.f;
 	if(380 >= m_tInfo.fX - (m_tInfo.fCX * 0.5f))
 	{
 		MoveMoment_Frame();
@@ -71,4 +72,12 @@ void CComingUpThorn::Render(HDC hDC)
 
 void CComingUpThorn::Release(void)
 {
+}
+
+void CComingUpThorn::OnCollision(CObj* other)
+{
+	if (other->CompareTag("player"))
+	{
+		dynamic_cast<CPlayer*>(other)->DownLife();
+	}
 }
