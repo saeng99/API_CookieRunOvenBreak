@@ -6,7 +6,8 @@
 #include "ObjMgr.h"
 #include "KeyMgr.h"
 #include "SceneMgr.h"
-
+#include "SoundMgr.h"
+#include "Scene.h"
 
 CMyMenu::CMyMenu()
 {
@@ -26,6 +27,8 @@ void CMyMenu::Initialize(void)
 	CObj* pButton = CAbstractFactory<CMyButton>::Create(400.f, 360.f);
 	pButton->Set_FrameKey(L"StartRun");
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BUTTON, pButton);
+
+	CSoundMgr::Get_Instance()->PlaySound(L"BGM Lobby New Party.wav", SOUND_MENU, g_fSound);
 }
 
 void CMyMenu::Update(void)

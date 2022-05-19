@@ -4,6 +4,7 @@
 #include "MyMenu.h"
 #include "MyEdit.h"
 #include "Stage.h"
+#include "CLoby.h"
 
 class CSceneMgr
 {
@@ -12,7 +13,9 @@ private:
 	~CSceneMgr();
 
 public:
+	void		Scene_Change();
 	void		Scene_Change(SCENEID eID);
+	void        Scene_Resur(SCENEID eID) { m_eResurScene = eID; }
 	void		Update(void);
 	void		Late_Update(void);
 	void		Render(HDC hDC);
@@ -47,6 +50,8 @@ private:
 
 	SCENEID					m_eCurScene;
 	SCENEID					m_ePreScene;
+
+	SCENEID					m_eResurScene;
 
 };
 

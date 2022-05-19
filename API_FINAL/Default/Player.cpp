@@ -12,7 +12,7 @@
 #include "SoundMgr.h"
 #include "SceneMgr.h"
 
-float	g_fSound = 1.f;
+//float	g_fSound = 1.f;
 
 CPlayer::CPlayer()
 	: m_eCurState(IDLE), m_ePreState(END)
@@ -26,8 +26,8 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize(void)
 {
-	m_tInfo.fX = 150.f;
-	m_tInfo.fY = 345.f;
+	//m_tInfo.fX = 150.f;
+	//m_tInfo.fY = 345.f;
 
 	m_tInfo.fCX = 60.f;
 	m_tInfo.fCY = 70.f;
@@ -45,6 +45,12 @@ void CPlayer::Initialize(void)
 	m_fGravity = 9.8f;
 	m_fJumpTime = 0.f;
 
+	m_bHit = false;
+	m_bHitMotion = false;
+	m_bHitMotionEnd = false;
+	m_dwHitTime = long(0);
+	m_dwHitMotionTime = long(0);
+
 
 	m_eRender = RENDER_GAMEOBJECT;
 
@@ -58,8 +64,6 @@ void CPlayer::Initialize(void)
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
 
-	//CSoundMgr::Get_Instance()->PlaySoundW(L"Success.wav", SOUND_EFFECT, g_fSound);
-
 }
 
 int CPlayer::Update(void)
@@ -72,7 +76,15 @@ int CPlayer::Update(void)
 	Jumping();
 	OffSet();
 
-	
+	Hit();
+		
+
+	if (m_tStatInfo.iHp <= 0)
+	{
+		Set_Dead();
+		m_eCurState = DEAD;
+	}
+
 
 	// 모든 연산이 끝난 뒤에 최종적인 좌표를 완성
 	Update_Rect();
@@ -180,7 +192,7 @@ void CPlayer::Key_Input(void)
 	{
 		m_pFrameKey = L"Player";
 		m_eCurState = SLIDE;
-		//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
+		CSoundMgr::Get_Instance()->PlaySoundW(L"Ch03slide.wav", SOUND_RUN, g_fSound);
 		m_tFrame.iFrameStart = 9;
 		m_tInfo.fCY = 46.f;
 		return;
@@ -196,7 +208,7 @@ void CPlayer::Key_Input(void)
 			m_fJumpTime = 0.f;
 			m_pFrameKey = L"Player";
 			m_eCurState = JUMP;
-			//CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fSound);
+			CSoundMgr::Get_Instance()->PlaySoundW(L"Ch03jump.wav", SOUND_RUN, g_fSound);
 		}
 
 		else if (m_bJump && !m_fBeforeJump)
@@ -207,6 +219,7 @@ void CPlayer::Key_Input(void)
 			m_fBeforeJump = true;
 			//m_pFrameKey = L"Player";
 			m_eCurState = JUMP;
+			CSoundMgr::Get_Instance()->PlaySoundW(L"Ch03jump.wav", SOUND_RRUN, g_fSound);
 		}
 
 		return;
@@ -331,36 +344,58 @@ void CPlayer::UpLife()
 {
 	m_tStatInfo.iHp += 10.f;
 	CObjMgr::Get_Instance()->SetHPBar(m_tStatInfo.iHp);
-
-	if (0 >= m_tStatInfo.iHp)
-	{
-		Set_Dead();
-		m_eCurState = DEAD;
-		return;
-	}
 }
 
 void CPlayer::DownLife()
 {
 	m_tStatInfo.iHp -= 5.f;
 	CObjMgr::Get_Instance()->SetHPBar(m_tStatInfo.iHp);
-	m_eCurState = HIT;
+}
 
-	if (0 >= m_tStatInfo.iHp)
+void CPlayer::Hit()
+{
+	if (m_bHit)
 	{
-		Set_Dead();
-		m_eCurState = DEAD;
-		return;
+		if (!m_dwHitTime)
+			m_dwHitTime = GetTickCount();
+
+		if (!m_dwHitMotionTime)
+			m_dwHitMotionTime = GetTickCount();
+
+		m_eCurState = WALK;
+
+			if (m_bHitMotion && m_bHitMotionEnd)
+			m_eCurState = HIT;
+
+		if (GetTickCount() - m_dwHitMotionTime > 600)
+		{
+			m_eCurState = WALK;
+			m_dwHitMotionTime = GetTickCount();
+			m_bHitMotion = false;
+		}
+
+		if (GetTickCount() - m_dwHitTime > 3000)
+		{
+			m_bHit = false;
+			m_bHitMotionEnd = false;
+			m_dwHitTime = GetTickCount();
+		}
 	}
+	
 }
 
 void CPlayer::OnCollision(CObj* other)
 {
-	if (m_tStatInfo.iHp <= 0)
+	if (!m_bHit)
 	{
-		Set_Dead();
-		m_eCurState = DEAD;
-		//CSceneMgr::SetScene(SC_MENU);
+		DownLife();
+
+		m_bHit = true;
+		m_bHitMotion = true;
+		m_bHitMotionEnd = true;
+
+		m_dwHitMotionTime = GetTickCount();
+		m_dwHitTime = GetTickCount();
 	}
 }
 

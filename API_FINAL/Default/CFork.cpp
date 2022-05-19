@@ -38,7 +38,7 @@ int CFork::Update(void)
 
 void CFork::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
+	m_tInfo.fX -= 4.f;
 }
 
 void CFork::Render(HDC hDC)
@@ -70,8 +70,8 @@ void CFork::Release(void)
 
 void CFork::OnCollision(CObj* other)
 {
-	if (other->CompareTag("player"))
-	{
-		dynamic_cast<CPlayer*>(other)->DownLife();
-	}
+	//if (other->CompareTag("player"))
+	//{
+	//	dynamic_cast<CPlayer*>(other)->DownLife();
+	//}
 }

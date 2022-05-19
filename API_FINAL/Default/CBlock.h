@@ -7,6 +7,7 @@ public:
 	CBlock();
 	virtual ~CBlock();
 
+
 public:
 	virtual void	Initialize(void)	override;
 	virtual int		Update(void)		override;

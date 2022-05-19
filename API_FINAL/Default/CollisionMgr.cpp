@@ -22,7 +22,7 @@ void CCollisionMgr::Collision_Rect(list<CObj*> _Dest, list<CObj*> _Sour)
 		{
 			if (IntersectRect(&rc, &(Dest->Get_Rect()), &(Sour->Get_Rect())))
 			{
-				Dest->OnCollision(Sour);
+ 				Dest->OnCollision(Sour);
 				//Sour->Set_Dead();
 			}
 		}
@@ -33,6 +33,9 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dest, list<CObj*> _Sour)
 {
 	for (auto& Dest : _Dest)
 	{
+		if ("Block" == Dest->Get_Tag())
+			continue;
+
 		for (auto& Sour : _Sour)
 		{
 			float	fX = 0.f, fY = 0.f;

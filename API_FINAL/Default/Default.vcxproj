@@ -158,6 +158,7 @@
     <ClInclude Include="CGoldenCoin.h" />
     <ClInclude Include="CHPBar.h" />
     <ClInclude Include="CHPPotion.h" />
+    <ClInclude Include="CLoby.h" />
     <ClInclude Include="CMapEditor.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -180,6 +181,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyButton.h" />
+    <ClInclude Include="MyButtonn.h" />
     <ClInclude Include="MyEdit.h" />
     <ClInclude Include="MyMenu.h" />
     <ClInclude Include="Obj.h" />
@@ -210,6 +212,7 @@
     <ClCompile Include="CGoldenCoin.cpp" />
     <ClCompile Include="CHPBar.cpp" />
     <ClCompile Include="CHPPotion.cpp" />
+    <ClCompile Include="CLoby.cpp" />
     <ClCompile Include="CMapEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -228,6 +231,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyButton.cpp" />
+    <ClCompile Include="MyButtonn.cpp" />
     <ClCompile Include="MyEdit.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="Obj.cpp" />

@@ -2,6 +2,7 @@
 #include "CSilverCoin.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "SoundMgr.h"
 
 CSilverCoin::CSilverCoin()
 {
@@ -40,7 +41,7 @@ int CSilverCoin::Update(void)
 
 void CSilverCoin::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
+	m_tInfo.fX -= 4.f;
 	Move_Frame();
 }
 
@@ -87,4 +88,11 @@ void CSilverCoin::Render(HDC hDC)
 
 void CSilverCoin::Release(void)
 {
+}
+
+void CSilverCoin::OnCollision(CObj* other)
+{
+	Set_Dead();
+
+	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetCoinJelly.wav", SOUND_COINEFFECT, g_fSound);
 }

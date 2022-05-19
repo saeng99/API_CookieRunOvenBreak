@@ -151,6 +151,9 @@
     <Filter Include="98. Design\GameMgr">
       <UniqueIdentifier>{c9b4f11b-aa9d-4cf1-9f10-0ed48a5529a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scene\04. Loby">
+      <UniqueIdentifier>{2e9c75cb-fc3b-4104-bca0-f78f716f4519}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -303,6 +306,12 @@
     <ClInclude Include="CGameMgr.h">
       <Filter>98. Design\GameMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CLoby.h">
+      <Filter>02. Scene\04. Loby</Filter>
+    </ClInclude>
+    <ClInclude Include="MyButtonn.h">
+      <Filter>01. Obj\04. MyButton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -427,6 +436,12 @@
     </ClCompile>
     <ClCompile Include="CGameMgr.cpp">
       <Filter>98. Design\GameMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CLoby.cpp">
+      <Filter>02. Scene\04. Loby</Filter>
+    </ClCompile>
+    <ClCompile Include="MyButtonn.cpp">
+      <Filter>01. Obj\04. MyButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

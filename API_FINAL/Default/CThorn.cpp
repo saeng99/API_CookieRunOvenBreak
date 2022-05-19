@@ -15,8 +15,8 @@ CThorn::~CThorn()
 
 void CThorn::Initialize(void)
 {
-	m_tInfo.fCX = 40.f;
-	m_tInfo.fCY = 64.f;
+	m_tInfo.fCX = 32.f;
+	m_tInfo.fCY = 48.f;
 
 	m_eRender = RENDER_GAMEOBJECT;
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Monster/Thorn2.bmp", L"Thorn");
@@ -35,7 +35,7 @@ int CThorn::Update(void)
 
 void CThorn::Late_Update(void)
 {
-	//m_tInfo.fX-= 4.f;
+	m_tInfo.fX-= 4.f;
 }
 
 void CThorn::Render(HDC hDC)
@@ -46,8 +46,8 @@ void CThorn::Render(HDC hDC)
 	HDC		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(hDC,
-		int(m_tRect.left - 2 + iScrollX),
-		int(m_tRect.top - 4 + iScrollY),
+		int(m_tRect.left - 6 + iScrollX),
+		int(m_tRect.top - 11 + iScrollY),
 		44,
 		70,
 		hMemDC,
@@ -57,7 +57,7 @@ void CThorn::Render(HDC hDC)
 		70,
 		RGB(255, 0, 255));
 
-	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
+	Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
 }
 
 void CThorn::Release(void)
@@ -66,8 +66,8 @@ void CThorn::Release(void)
 
 void CThorn::OnCollision(CObj* other)
 {
-	if (other->CompareTag("player"))
-	{
-		dynamic_cast<CPlayer*>(other)->DownLife();
-	}
+	//if (other->CompareTag("player"))
+	//{
+	//	dynamic_cast<CPlayer*>(other)->DownLife();
+	//}
 }
