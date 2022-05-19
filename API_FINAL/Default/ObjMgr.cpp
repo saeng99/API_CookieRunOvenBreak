@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ObjMgr.h"
 #include "CollisionMgr.h"
+#include "SceneMgr.h"
 
 CObjMgr* CObjMgr::m_pInstance = nullptr;
 
@@ -78,10 +79,11 @@ void CObjMgr::Late_Update(void)
 	{
 		for (auto& iter : m_ObjList[i])
 		{
-			iter->Late_Update();
 
+			iter->Late_Update();
+	/*
 			if (m_ObjList[i].empty())
-				break;
+				break;*/
 
 			RENDERID eRender = iter->Get_RenderID();
 			m_RenderSort[eRender].push_back(iter);
@@ -119,6 +121,7 @@ void CObjMgr::Render(HDC hDC)
 		m_RenderSort[i].clear();
 	}
 
+	CSceneMgr::Get_Instance()->Scene_Change();
 }
 
 void CObjMgr::Release(void)

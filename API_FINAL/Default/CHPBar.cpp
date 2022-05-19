@@ -26,7 +26,7 @@ void CHPBar::Initialize(void)
 	m_eRender = RENDER_UI;
 	//m_fGague = 0;
 	//m_pTarget = nullptr;
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/HeartBarBack2.bmp", L"HPBarBack");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/HeartBarBack22.bmp", L"HPBarBack");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/HeartBarFront.bmp", L"HPBar");
 }
 // 플레이어 체력을 얻어와서 그걸로 그린다 getplayer 캐스팅해서 가져오면 됨,,, update에서,,,

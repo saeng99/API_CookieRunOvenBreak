@@ -3,6 +3,7 @@
 
 
 CScene::CScene()
+	: g_fSound(1.f)
 {
 }
 

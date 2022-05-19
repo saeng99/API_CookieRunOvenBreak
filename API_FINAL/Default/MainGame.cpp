@@ -31,9 +31,9 @@ void CMainGame::Initialize(void)
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"Back");
 
-	//CSoundMgr::Get_Instance()->Initialize(); 
+	CSoundMgr::Get_Instance()->Initialize(); 
 	CLineMgr::Get_Instance()->Initialize();
-	CSceneMgr::Get_Instance()->Scene_Change(SC_LOGO);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 	//CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 }
 
@@ -78,7 +78,7 @@ void CMainGame::Render(void)
 
 void CMainGame::Release(void)
 {
-	//CSoundMgr::Get_Instance()->Destroy_Instance();
+	CSoundMgr::Get_Instance()->Destroy_Instance();
 	CLineMgr::Get_Instance()->Destroy_Instance();
 	CSceneMgr::Get_Instance()->Destroy_Instance();
 	CBmpMgr::Get_Instance()->Destroy_Instance();

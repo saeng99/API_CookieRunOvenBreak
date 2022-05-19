@@ -2,6 +2,7 @@
 #include "CBearJelly.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "SoundMgr.h"
 
 CBearJelly::CBearJelly()
 {
@@ -40,7 +41,7 @@ int CBearJelly::Update(void)
 
 void CBearJelly::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
+	m_tInfo.fX -= 4.f;
 
 	Move_Frame();
 }
@@ -88,4 +89,11 @@ void CBearJelly::Render(HDC hDC)
 
 void CBearJelly::Release(void)
 {
+}
+
+void CBearJelly::OnCollision(CObj* other)
+{
+	Set_Dead();
+
+	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetJelly.wav", SOUND_JELLYEFFECT, g_fSound);
 }

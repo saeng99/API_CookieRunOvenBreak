@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "KeyMgr.h"
 #include "SceneMgr.h"
+#include "SoundMgr.h"
 
 
 CMyButton::CMyButton()
@@ -45,8 +46,11 @@ void CMyButton::Late_Update(void)
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_LBUTTON))
 		{
 			if (!lstrcmp(L"StartRun", m_pFrameKey))
-				CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
-
+			{
+				CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_Button.wav", SOUND_BUTTON, g_fSound);
+				CSceneMgr::Get_Instance()->Scene_Resur(SC_LOBY);
+				CSoundMgr::Get_Instance()->StopSound(SOUND_MENU);
+			}
 			/*if (!lstrcmp(L"Start", m_pFrameKey))
 				CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 

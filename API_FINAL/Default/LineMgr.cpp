@@ -21,7 +21,13 @@ void CLineMgr::Initialize(void)
 		{ 7000.f, 380.f }
 	};
 
+	LINEPOINT	tLine2[2]{
+		{350.f,300.f},
+		{450.f, 300.f}
+	};
+		
 	m_LineList.push_back(new CLine(tLine[0], tLine[1]));
+	m_LineList.push_back(new CLine(tLine2[0], tLine2[1]));
 }
 
 void CLineMgr::Render(HDC hDC)

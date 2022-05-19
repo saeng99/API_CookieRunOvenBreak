@@ -25,7 +25,7 @@ public:
 	void		Set_FrameKey(TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
 
 	bool		Get_Dead() { return m_bDead; }
-
+	string		Get_Tag() { return m_Tag; }
 
 	const INFO&		Get_Info(void) const { return m_tInfo; }
 	const RECT&		Get_Rect(void) const { return m_tRect; }
@@ -70,6 +70,8 @@ protected:
 	TCHAR*		m_pFrameKey;
 
 	RENDERID	m_eRender;
+
+	float		g_fSound;
 
 protected:
 	float				m_fGTime;

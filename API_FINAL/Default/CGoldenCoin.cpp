@@ -2,6 +2,7 @@
 #include "CGoldenCoin.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "SoundMgr.h"
 
 CGoldenCoin::CGoldenCoin()
 {
@@ -40,7 +41,7 @@ int CGoldenCoin::Update(void)
 
 void CGoldenCoin::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
+	m_tInfo.fX -= 4.f;
 	Move_Frame();
 }
 
@@ -87,4 +88,11 @@ void CGoldenCoin::Render(HDC hDC)
 
 void CGoldenCoin::Release(void)
 {
+}
+
+void CGoldenCoin::OnCollision(CObj* other)
+{
+	Set_Dead();
+
+	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetCoinJelly.wav", SOUND_COINEFFECT, g_fSound);
 }

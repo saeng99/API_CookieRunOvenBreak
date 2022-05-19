@@ -17,6 +17,8 @@
 #include "CGoldenCoin.h"
 #include "CHPBar.h"
 #include "CHPPotion.h"
+#include "SoundMgr.h"
+#include "Scene.h"
 
 CStage::CStage()
 {
@@ -38,9 +40,11 @@ void CStage::Initialize(void)
 	//CLineMgr::Get_Instance()->Initialize();
 
 	//CTileMgr::Get_Instance()->Load_Tile();
+
+	CSoundMgr::Get_Instance()->PlaySoundW(L"BGM Map Chapter.wav", SOUND_STAGE, g_fSound);
 	CObjMgr::Get_Instance()->Add_Object(OBJ_HPBAR, CAbstractFactory<CHPBar>::Create());
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create());
+	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(150.f,345.f));
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CBlock>::Create(50.f,430.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CBlock>::Create(150.f, 430.f));
@@ -88,8 +92,8 @@ void CStage::Initialize(void)
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(1214.f, 346.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CThorn>::Create(2420.f, 346.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(1640.f, 300.f));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(2720.f, 300.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(1640.f, 330.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CComingUpThorn>::Create(2770.f, 330.f));
 										
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(800.f,160.f));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CFork>::Create(888.f,160.f));
@@ -140,12 +144,11 @@ void CStage::Initialize(void)
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_JELLY, CAbstractFactory<CGoldenCoin>::Create(280.f, 352.f));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BOOSTER, CAbstractFactory<CHPPotion>::Create(50.f, 350.f));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BOOSTER, CAbstractFactory<CHPPotion>::Create(3500.f, 350.f));
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Oven222.bmp", L"Ground");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Fireplz2.bmp", L"Fire");
 }	
-
 
 void CStage::Update(void)
 {

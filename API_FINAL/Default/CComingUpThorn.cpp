@@ -15,8 +15,8 @@ CComingUpThorn::~CComingUpThorn()
 
 void CComingUpThorn::Initialize(void)
 {
-	m_tInfo.fCX = 50.f;
-	m_tInfo.fCY = 140.f;
+	m_tInfo.fCX = 40.f;
+	m_tInfo.fCY = 100.f;
 
 	m_eRender = RENDER_GAMEOBJECT;
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Monster/ComingUpThorn3.bmp", L"Thorn2");
@@ -41,8 +41,8 @@ int CComingUpThorn::Update(void)
 
 void CComingUpThorn::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
-	if(380 >= m_tInfo.fX - (m_tInfo.fCX * 0.5f))
+	m_tInfo.fX -= 4.f;
+	if(420 >= m_tInfo.fX - (m_tInfo.fCX * 0.5f))
 	{
 		MoveMoment_Frame();
 	}
@@ -56,8 +56,8 @@ void CComingUpThorn::Render(HDC hDC)
 	HDC		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(hDC,
-		int(m_tRect.left - 6 + iScrollX),
-		int(m_tRect.top - 10 + iScrollY),
+		int(m_tRect.left - 11 + iScrollX),
+		int(m_tRect.top - 30 + iScrollY),
 		62,
 		160,
 		hMemDC,
@@ -76,8 +76,8 @@ void CComingUpThorn::Release(void)
 
 void CComingUpThorn::OnCollision(CObj* other)
 {
-	if (other->CompareTag("player"))
-	{
-		dynamic_cast<CPlayer*>(other)->DownLife();
-	}
+	//if (other->CompareTag("player"))
+	//{
+	//	dynamic_cast<CPlayer*>(other)->DownLife();
+	//}
 }

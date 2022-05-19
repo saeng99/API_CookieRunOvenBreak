@@ -21,4 +21,6 @@
 #define		TILEY		20
 
 
+
+
 extern HWND			g_hWnd;

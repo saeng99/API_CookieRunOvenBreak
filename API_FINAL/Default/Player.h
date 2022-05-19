@@ -23,6 +23,7 @@ public:
 
 	void		UpLife();
 	void		DownLife();
+	void		Hit();
 
 private:
 	void		Key_Input(void);
@@ -46,6 +47,14 @@ private:
 	STATE					m_eCurState;
 	int		m_hp;
 	int		m_maxhp;
+
+	bool	m_bHit;
+	bool	m_bHitMotion;
+	bool    m_bHitMotionEnd;
+
+	DWORD	m_dwHitTime;
+	DWORD	m_dwHitMotionTime;
+
 
 };
 

@@ -79,11 +79,32 @@ void CSoundMgr::PlayBGM(TCHAR * pSoundKey, float fVolume)
 	if (iter == m_mapSound.end())
 		return;
 
-	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[SOUND_BGM]);
+	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[SOUND_MENU]);
 	
-	FMOD_Channel_SetMode(m_pChannelArr[SOUND_BGM], FMOD_LOOP_NORMAL);
+	FMOD_Channel_SetMode(m_pChannelArr[SOUND_MENU], FMOD_LOOP_NORMAL);
 	
-	FMOD_Channel_SetVolume(m_pChannelArr[SOUND_BGM], fVolume);
+	FMOD_Channel_SetVolume(m_pChannelArr[SOUND_MENU], fVolume);
+	FMOD_System_Update(m_pSystem);
+}
+
+void CSoundMgr::PlayBGM2(TCHAR* pSoundKey, float fVolume)
+{
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	// iter = find_if(m_mapSound.begin(), m_mapSound.end(), CTag_Finder(pSoundKey));
+	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)->bool
+		{
+			return !lstrcmp(pSoundKey, iter.first);
+		});
+
+	if (iter == m_mapSound.end())
+		return;
+
+	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[SOUND_STAGE]);
+
+	FMOD_Channel_SetMode(m_pChannelArr[SOUND_STAGE], FMOD_LOOP_NORMAL);
+
+	FMOD_Channel_SetVolume(m_pChannelArr[SOUND_STAGE], fVolume);
 	FMOD_System_Update(m_pSystem);
 }
 
