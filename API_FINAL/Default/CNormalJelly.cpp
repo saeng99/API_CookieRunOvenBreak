@@ -4,6 +4,7 @@
 #include "ScrollMgr.h"
 #include "SoundMgr.h"
 #include "Scene.h"
+#include "CGameMgr.h"
 
 CNormalJelly::CNormalJelly()
 {
@@ -101,6 +102,6 @@ void CNormalJelly::Release(void)
 void CNormalJelly::OnCollision(CObj* other)
 {
 	Set_Dead();
-
+	CGameMgr::Get_Instance()->PlusJelly();
 	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetJelly.wav", SOUND_JELLYEFFECT, g_fSound);
 }

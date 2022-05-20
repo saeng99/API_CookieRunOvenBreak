@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "SoundMgr.h"
+#include "CGameMgr.h"
 
 CGoldenCoin::CGoldenCoin()
 {
@@ -93,6 +94,6 @@ void CGoldenCoin::Release(void)
 void CGoldenCoin::OnCollision(CObj* other)
 {
 	Set_Dead();
-
+	CGameMgr::Get_Instance()->PlusGoldenCoin();
 	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetCoinJelly.wav", SOUND_COINEFFECT, g_fSound);
 }

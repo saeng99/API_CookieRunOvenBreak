@@ -18,8 +18,8 @@ CMyButtonn::~CMyButtonn()
 
 void CMyButtonn::Initialize(void)
 {
-    m_tInfo.fCX = 105.f;
-    m_tInfo.fCY = 60.f;
+    m_tInfo.fCX = 200.f;
+	m_tInfo.fCY = 70.f;
 
     m_eRender = RENDER_UI;
 }
@@ -47,18 +47,9 @@ void CMyButtonn::Late_Update(void)
 			 if (!lstrcmp(L"Playbutton", m_pFrameKey))
 			{
 				 CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_Button.wav", SOUND_BUTTON, g_fSound);
-				 CSceneMgr::Get_Instance()->Scene_Resur(SC_STAGE);
+				 CSceneMgr::Get_Instance()->Scene_Resur(SC_TUTORIAL);
 				CSoundMgr::Get_Instance()->StopSound(SOUND_MENU);
 			}
-			/*if (!lstrcmp(L"Start", m_pFrameKey))
-				CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
-
-			else if (!lstrcmp(L"Edit", m_pFrameKey))
-				CSceneMgr::Get_Instance()->Scene_Change(SC_EDIT);
-
-			else if (!lstrcmp(L"Exit", m_pFrameKey))
-				DestroyWindow(g_hWnd);*/
-
 			return;
 		}
 

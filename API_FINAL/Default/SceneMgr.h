@@ -5,6 +5,7 @@
 #include "MyEdit.h"
 #include "Stage.h"
 #include "CLoby.h"
+#include "CTutorial.h"
 
 class CSceneMgr
 {
