@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "SoundMgr.h"
+#include "CGameMgr.h"
 
 CBearJelly::CBearJelly()
 {
@@ -94,6 +95,6 @@ void CBearJelly::Release(void)
 void CBearJelly::OnCollision(CObj* other)
 {
 	Set_Dead();
-
+	CGameMgr::Get_Instance()->PlusBearJelly();
 	CSoundMgr::Get_Instance()->PlaySoundW(L"SoundEff_GetJelly.wav", SOUND_JELLYEFFECT, g_fSound);
 }

@@ -20,12 +20,11 @@ CLoby::~CLoby()
 
 void CLoby::Initialize(void)
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Button/playbutton22.bmp", L"Playbutton");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Button/PlayButtonnn.bmp", L"Playbutton");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Loby.bmp", L"Loby");
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(400.f, 250.f));
 
-
-	CObj* pButton = CAbstractFactory<CMyButtonn>::Create(650.f, 370.f);
+	CObj* pButton = CAbstractFactory<CMyButtonn>::Create(620.f, 390.f);
 	pButton->Set_FrameKey(L"Playbutton");
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BUTTON, pButton);
 
@@ -39,14 +38,6 @@ void CLoby::Update(void)
 
 void CLoby::Late_Update(void)
 {
-	// 플레이 버튼 출력 실패로 임시로 넣어둠
-	if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
-	{
-		CSceneMgr::Get_Instance()->Scene_Resur(SC_STAGE);
-
-		return;
-	}
-	
 	CObjMgr::Get_Instance()->Late_Update();
 }
 

@@ -46,6 +46,10 @@ void CSceneMgr::Scene_Change()
 		case SC_STAGE:
 			m_pScene = new CStage;
 			break;
+
+		case SC_TUTORIAL:
+			m_pScene = new CTutorial;
+			break;
 			
 		}
 
@@ -85,6 +89,10 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 
 		case SC_STAGE:
 			m_pScene = new CStage;
+			break;
+
+		case SC_TUTORIAL:
+			m_pScene = new CTutorial;
 			break;
 
 		}

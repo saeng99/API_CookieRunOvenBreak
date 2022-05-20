@@ -19,6 +19,7 @@
 #include "CHPPotion.h"
 #include "SoundMgr.h"
 #include "Scene.h"
+#include "CGameMgr.h"
 
 CStage::CStage()
 {
@@ -32,17 +33,11 @@ CStage::~CStage()
 
 void CStage::Initialize(void)
 {
-
-	/*for (int i = 0; i < 5; ++i)
-	{
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster>::Create(rand() % WINCX, rand() % WINCY));
-	}*/
 	//CLineMgr::Get_Instance()->Initialize();
-
-	//CTileMgr::Get_Instance()->Load_Tile();
 
 	CSoundMgr::Get_Instance()->PlaySoundW(L"BGM Map Chapter.wav", SOUND_STAGE, g_fSound);
 	CObjMgr::Get_Instance()->Add_Object(OBJ_HPBAR, CAbstractFactory<CHPBar>::Create());
+	CGameMgr::Get_Instance()->Initialize();
 
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(150.f,345.f));
 
@@ -153,6 +148,7 @@ void CStage::Initialize(void)
 void CStage::Update(void)
 {
 	CObjMgr::Get_Instance()->Update();	
+	CGameMgr::Get_Instance()->Update();
 	//CTileMgr::Get_Instance()->Update();
 
 }
@@ -199,11 +195,13 @@ void CStage::Render(HDC hDC)
 
 	//CLineMgr::Get_Instance()->Render(hMemDC);
 	CObjMgr::Get_Instance()->Render(hDC);
+	CGameMgr::Get_Instance()->Render(hDC);
 }
 
 void CStage::Release(void)
 {
 	CTileMgr::Get_Instance()->Destroy_Instance();
+	CGameMgr::Get_Instance()->Destroy_Instance();
 
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_BLOCK);
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_JELLY);

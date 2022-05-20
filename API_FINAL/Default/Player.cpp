@@ -97,13 +97,6 @@ int CPlayer::Update(void)
 
 void CPlayer::Late_Update(void)
 {
-	//CObj::UpdateGravity(m_fGravity);
-
-	//if (m_bJump)
-	//{
-	//	m_tInfo.fY -= m_fJumpPower * sinf((90.f * PI) / 180.f);
-	//}
-
 	Motion_Change();
 	Move_Frame();
 }
@@ -374,7 +367,7 @@ void CPlayer::Hit()
 			m_bHitMotion = false;
 		}
 
-		if (GetTickCount() - m_dwHitTime > 3000)
+		if (GetTickCount() - m_dwHitTime > 1200)
 		{
 			m_bHit = false;
 			m_bHitMotionEnd = false;

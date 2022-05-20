@@ -154,6 +154,9 @@
     <Filter Include="02. Scene\04. Loby">
       <UniqueIdentifier>{2e9c75cb-fc3b-4104-bca0-f78f716f4519}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scene\05. Tutorial">
+      <UniqueIdentifier>{86ad571b-3a08-4580-859a-f15ea6c09dd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -312,6 +315,12 @@
     <ClInclude Include="MyButtonn.h">
       <Filter>01. Obj\04. MyButton</Filter>
     </ClInclude>
+    <ClInclude Include="CNumber.h">
+      <Filter>98. Design\GameMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CTutorial.h">
+      <Filter>02. Scene\05. Tutorial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -442,6 +451,12 @@
     </ClCompile>
     <ClCompile Include="MyButtonn.cpp">
       <Filter>01. Obj\04. MyButton</Filter>
+    </ClCompile>
+    <ClCompile Include="CNumber.cpp">
+      <Filter>98. Design\GameMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CTutorial.cpp">
+      <Filter>02. Scene\05. Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
