@@ -149,7 +149,7 @@ void CStage::Update(void)
 {
 	CObjMgr::Get_Instance()->Update();	
 	CGameMgr::Get_Instance()->Update();
-	//CTileMgr::Get_Instance()->Update();
+	
 
 }
 
