@@ -162,9 +162,12 @@
     <ClInclude Include="CMapEditor.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="CMyButtonnn.h" />
     <ClInclude Include="CNormalJelly.h" />
     <ClInclude Include="CNumber.h" />
+    <ClInclude Include="CNumberBig.h" />
     <ClInclude Include="CollisionMgr.h" />
+    <ClInclude Include="CScoreBoard.h" />
     <ClInclude Include="CSilverCoin.h" />
     <ClInclude Include="CThorn.h" />
     <ClInclude Include="CTutorial.h" />
@@ -218,9 +221,12 @@
     <ClCompile Include="CMapEditor.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="CMyButtonnn.cpp" />
     <ClCompile Include="CNormalJelly.cpp" />
     <ClCompile Include="CNumber.cpp" />
+    <ClCompile Include="CNumberBig.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="CScoreBoard.cpp" />
     <ClCompile Include="CSilverCoin.cpp" />
     <ClCompile Include="CThorn.cpp" />
     <ClCompile Include="CTutorial.cpp" />

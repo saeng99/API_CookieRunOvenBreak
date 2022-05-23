@@ -50,6 +50,10 @@ void CSceneMgr::Scene_Change()
 		case SC_TUTORIAL:
 			m_pScene = new CTutorial;
 			break;
+
+		case SC_SCOREBOARD:
+			m_pScene = new CScoreBoard;
+			break;
 			
 		}
 
@@ -95,6 +99,9 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 			m_pScene = new CTutorial;
 			break;
 
+		case SC_SCOREBOARD:
+			m_pScene = new CScoreBoard;
+			break;
 		}
 
 		m_pScene->Initialize();

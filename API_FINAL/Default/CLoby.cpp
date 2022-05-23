@@ -8,6 +8,7 @@
 #include "MyButtonn.h"
 #include "KeyMgr.h"
 #include "SceneMgr.h"
+#include "LineMgr.h"
 
 CLoby::CLoby()
 {
@@ -20,6 +21,8 @@ CLoby::~CLoby()
 
 void CLoby::Initialize(void)
 {
+	CLineMgr::Get_Instance()->Initialize();
+
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Button/PlayButtonnn.bmp", L"Playbutton");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Loby.bmp", L"Loby");
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(400.f, 250.f));
@@ -34,6 +37,8 @@ void CLoby::Initialize(void)
 void CLoby::Update(void)
 {
 	CObjMgr::Get_Instance()->Update();
+
+
 }
 
 void CLoby::Late_Update(void)
@@ -47,6 +52,8 @@ void CLoby::Render(HDC hDC)
 	BitBlt(hDC, 0, 0, WINCX, WINCY, hMemDC, 0, 0, SRCCOPY);
 
 	CObjMgr::Get_Instance()->Render(hDC);
+	CLineMgr::Get_Instance()->Render(hDC);
+
 }
 
 void CLoby::Release(void)
@@ -54,4 +61,6 @@ void CLoby::Release(void)
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_BUTTON);
 	CObjMgr::Get_Instance()->Delete_ID(OBJ_PLAYER);
 	CSoundMgr::Get_Instance()->StopSound(SOUND_LOBY);
+	CLineMgr::Get_Instance()->Destroy_Instance();
+
 }

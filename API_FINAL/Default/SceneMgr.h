@@ -6,6 +6,7 @@
 #include "Stage.h"
 #include "CLoby.h"
 #include "CTutorial.h"
+#include "CScoreBoard.h"
 
 class CSceneMgr
 {

@@ -2,6 +2,8 @@
 #include "Include.h"
 #include "Obj.h"
 #include "CNumber.h"
+#include "CNumberBig.h"
+
 
 class CGameMgr
 	:public CObj
@@ -37,16 +39,22 @@ public:
 public:
 	void	PlusJelly() { m_iScore += 5; };
 	void	PlusBearJelly() { m_iScore += 50; };
-	void	PlusSilverCoin() { m_iCoin += 1; };
-	void	PlusGoldenCoin() { m_iCoin += 10; };
+	void	PlusSilverCoin() { m_iCoin += 5; };
+	void	PlusGoldenCoin() { m_iCoin += 20; };
 	void	Update_ScoreVector();
+	void	Update_ScoreBigVector();
 	void	Update_CoinVector();
+	void	Set_iScore() { m_iScore = g_iScore; m_iCoin = g_iCoin; m_bScoreBest = g_bScoreBest; }
 
 private:
 	int		m_iScore;
 	int		m_iCoin;
-	vector<CNumber*> m_vecScoreNumber;
-	vector<CNumber*> m_vecCoinNumber;
+	bool    m_bScoreBest;
+	int		m_iSceneNo;
+
+	vector<CNumber*>	m_vecScoreNumber;
+	vector<CNumberBig*> m_vecScoreNumberBig;
+	vector<CNumber*>	m_vecCoinNumber;
 
 	static CGameMgr* m_pInstance;
 };

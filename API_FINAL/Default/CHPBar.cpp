@@ -68,8 +68,8 @@ void CHPBar::Render(HDC hDC)
 
 	//체력바 배경(회색)
 	GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
-		m_tRect.left - 10 + iScrollX,	// 2,3 인자 :  복사받을 위치 X, Y
-		m_tRect.top + iScrollY,
+		m_tRect.left - 10,	// 2,3 인자 :  복사받을 위치 X, Y
+		m_tRect.top,
 		410,
 		30,
 		hMemDC,
@@ -81,8 +81,8 @@ void CHPBar::Render(HDC hDC)
 
 	//체력바 게이지(주황)
 	GdiTransparentBlt(hDC, 					// 복사 받을, 최종적으로 그림을 그릴 DC
-		m_tRect.left + 15 + iScrollX,	// 2,3 인자 :  복사받을 위치 X, Y
-		m_tRect.top + 8 + iScrollY,
+		m_tRect.left + 15,	// 2,3 인자 :  복사받을 위치 X, Y
+		m_tRect.top + 8,
 		(int)m_fGague, //m_fGague
 		(int)m_tInfo.fCY,
 		hHPMemDC,

@@ -42,7 +42,7 @@ int CSilverCoin::Update(void)
 
 void CSilverCoin::Late_Update(void)
 {
-	m_tInfo.fX -= 4.f;
+	//m_tInfo.fX -= 4.f;
 	Move_Frame();
 }
 

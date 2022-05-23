@@ -60,7 +60,7 @@ void CNumber::Render(HDC hDC)
 		0,
 		(int)m_tInfo.fCX,				// 복사할 비트맵의 가로, 세로 길이
 		(int)m_tInfo.fCY,
-		RGB(63, 72, 204));
+		RGB(255, 0, 255));
 }
 
 void CNumber::Release(void)

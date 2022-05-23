@@ -24,3 +24,8 @@
 
 
 extern HWND			g_hWnd;
+
+extern int			g_iCoin;
+extern int			g_iScore;
+extern int			g_iScoreBest;
+extern bool			g_bScoreBest;

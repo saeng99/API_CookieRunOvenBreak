@@ -157,6 +157,9 @@
     <Filter Include="02. Scene\05. Tutorial">
       <UniqueIdentifier>{86ad571b-3a08-4580-859a-f15ea6c09dd0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scene\06. ScoreBoard">
+      <UniqueIdentifier>{27e96efc-4f0a-46e3-b4c7-1fe71190e81e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -321,6 +324,15 @@
     <ClInclude Include="CTutorial.h">
       <Filter>02. Scene\05. Tutorial</Filter>
     </ClInclude>
+    <ClInclude Include="CScoreBoard.h">
+      <Filter>02. Scene\06. ScoreBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyButtonnn.h">
+      <Filter>01. Obj\04. MyButton</Filter>
+    </ClInclude>
+    <ClInclude Include="CNumberBig.h">
+      <Filter>98. Design\GameMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -457,6 +469,15 @@
     </ClCompile>
     <ClCompile Include="CTutorial.cpp">
       <Filter>02. Scene\05. Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CScoreBoard.cpp">
+      <Filter>02. Scene\06. ScoreBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyButtonnn.cpp">
+      <Filter>01. Obj\04. MyButton</Filter>
+    </ClCompile>
+    <ClCompile Include="CNumberBig.cpp">
+      <Filter>98. Design\GameMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
