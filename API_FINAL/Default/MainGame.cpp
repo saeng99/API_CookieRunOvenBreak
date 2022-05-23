@@ -33,15 +33,29 @@ void CMainGame::Initialize(void)
 
 	CSoundMgr::Get_Instance()->Initialize(); 
 	CLineMgr::Get_Instance()->Initialize();
-	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-	//CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
+	//CSceneMgr::Get_Instance()->Scene_Change(SC_SCOREBOARD);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
+	//CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+
+#ifdef _DEBUG
+
+	if (::AllocConsole() == TRUE)
+	{
+		FILE* nfp[3];
+		freopen_s(nfp + 0, "CONOUT$", "rb", stdin);
+		freopen_s(nfp + 1, "CONOUT$", "wb", stdout);
+		freopen_s(nfp + 2, "CONOUT$", "wb", stderr);
+		std::ios::sync_with_stdio();
+	}
+
+#endif // _DEBUG
 }
 
 void CMainGame::Update(void)
 {
 	
 	CSceneMgr::Get_Instance()->Update();
-	CScrollMgr::Get_Instance()->Scroll_Lock();
+	//CScrollMgr::Get_Instance()->Scroll_Lock();
 
 }
 
@@ -83,7 +97,6 @@ void CMainGame::Release(void)
 	CBmpMgr::Get_Instance()->Destroy_Instance();
 	CScrollMgr::Get_Instance()->Destroy_Instance();
 	CKeyMgr::Get_Instance()->Destroy_Instance();
-	CLineMgr::Get_Instance()->Destroy_Instance();
 	CObjMgr::Get_Instance()->Destroy_Instance();
 
 	ReleaseDC(g_hWnd, m_hDC);	

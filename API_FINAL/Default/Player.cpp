@@ -32,13 +32,13 @@ void CPlayer::Initialize(void)
 	m_tInfo.fCX = 60.f;
 	m_tInfo.fCY = 70.f;
 
-	m_fSpeed = 5.f;
+	m_fSpeed = 4.3f;
 	m_tStatInfo.iMaxHp = 100;
 	m_tStatInfo.iHp = m_tStatInfo.iMaxHp;
 
 	m_fDiagonal = 100.f;
 	m_Tag = "player";
-
+	m_bDead = false;
 	m_bJump = false;
 	m_fBeforeJump = false;
 	m_fJumpPower = 9.3f;
@@ -54,7 +54,7 @@ void CPlayer::Initialize(void)
 
 	m_eRender = RENDER_GAMEOBJECT;
 
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bright Cookie2.bmp", L"Player");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bright Cookie22.bmp", L"Player");
 
 	m_pFrameKey = L"Player";
 
@@ -63,13 +63,46 @@ void CPlayer::Initialize(void)
 	m_tFrame.iMotion = 1;
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
+	m_dwDeathMotionTime = long(0);
 
 }
 
 int CPlayer::Update(void)
 {
-	if (m_bDead)
-		return OBJ_DEAD;
+	if (m_tStatInfo.iHp <= 0)
+	{
+		Set_Dead();
+		m_eCurState = DEAD;
+
+		if (!m_dwDeathMotionTime)
+			m_dwDeathMotionTime = GetTickCount();
+
+		if (GetTickCount() - m_dwDeathMotionTime > 1000)
+		{
+			//m_dwDeathMotionTime = long(0);
+			m_tFrame.iFrameStart = 8;
+			return OBJ_DEAD;
+		}
+		return OBJ_NOEVENT;
+	}
+
+	if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_STAGE)
+	{
+		float	fY = 0.f;
+		if (!(CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, &fY)) && !m_bJump)
+		{
+			m_tInfo.fY += m_fSpeed;
+
+			if (m_tInfo.fY > 420)
+			{
+				m_tStatInfo.iHp = 0;
+				Set_Dead();
+			}
+		}
+	}
+
+	if(!m_bDead)
+		m_tInfo.fX += m_fSpeed;
 	
 	// 연산을 진행
 	Key_Input();
@@ -77,13 +110,6 @@ int CPlayer::Update(void)
 	OffSet();
 
 	Hit();
-		
-
-	if (m_tStatInfo.iHp <= 0)
-	{
-		Set_Dead();
-		m_eCurState = DEAD;
-	}
 
 
 	// 모든 연산이 끝난 뒤에 최종적인 좌표를 완성
@@ -168,7 +194,6 @@ void CPlayer::Key_Input(void)
 
 		if (CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, &fY))
 			m_tInfo.fY = fY - (m_tInfo.fCY * 0.5f);
-
 	}
 
 	else if (GetAsyncKeyState(VK_RIGHT))
@@ -253,11 +278,11 @@ void CPlayer::Jumping(void)
 
 void CPlayer::OffSet(void)
 {
-	int		iOffSetX = WINCX >> 1;
+	int		iOffSetX = 150;
 	int		iOffSetY = WINCY >> 1;
 	int		iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int		iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-	int		iItvX = 300;
+	int		iItvX = 0;
 	int		iItvY = 200;
 
 	if (iOffSetX - iItvX > m_tInfo.fX + iScrollX)
@@ -322,7 +347,7 @@ void CPlayer::Motion_Change(void)
 
 		case DEAD:
 			m_tFrame.iFrameStart = 5;
-			m_tFrame.iFrameEnd = 8;
+			m_tFrame.iFrameEnd = 9;
 			m_tFrame.iMotion = 4;
 			m_tFrame.dwSpeed = 200;
 			m_tFrame.dwTime = GetTickCount();
@@ -357,14 +382,18 @@ void CPlayer::Hit()
 
 		m_eCurState = WALK;
 
-			if (m_bHitMotion && m_bHitMotionEnd)
+		if (m_bHitMotion && m_bHitMotionEnd)
+		{
 			m_eCurState = HIT;
+			m_fSpeed = 2.f;
+		}
 
 		if (GetTickCount() - m_dwHitMotionTime > 600)
 		{
 			m_eCurState = WALK;
 			m_dwHitMotionTime = GetTickCount();
 			m_bHitMotion = false;
+			m_fSpeed = 4.3f;
 		}
 
 		if (GetTickCount() - m_dwHitTime > 1200)

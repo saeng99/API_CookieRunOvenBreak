@@ -20,6 +20,7 @@ public:
 
 	int Get_Hp() { return m_hp; }
 	int Get_MaxHp() { return m_maxhp; }
+	int Get_Player() { return m_tInfo.fX; }
 
 	void		UpLife();
 	void		DownLife();
@@ -54,6 +55,9 @@ private:
 
 	DWORD	m_dwHitTime;
 	DWORD	m_dwHitMotionTime;
+
+	DWORD	m_dwDeathMotionTime;
+
 
 
 };

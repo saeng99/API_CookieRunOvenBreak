@@ -17,7 +17,8 @@ CTutorial::~CTutorial()
 
 void CTutorial::Initialize(void)
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Tutorial.bmp", L"Tutorial");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/fix1.bmp", L"Tutorial");
+	CSoundMgr::Get_Instance()->PlaySoundW(L"loading_land1.wav", SOUND_TUTO, g_fSound);
 }
 
 void CTutorial::Update(void)
@@ -42,4 +43,5 @@ void CTutorial::Render(HDC hDC)
 
 void CTutorial::Release(void)
 {
+	CSoundMgr::Get_Instance()->StopSound(SOUND_TUTO);
 }

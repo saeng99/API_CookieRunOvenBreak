@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LineMgr.h"
+#include "SceneMgr.h"
 
 CLineMgr*		CLineMgr::m_pInstance = nullptr;
 
@@ -16,24 +17,37 @@ CLineMgr::~CLineMgr()
 void CLineMgr::Initialize(void)
 {
 	//Load_Line();
-	LINEPOINT	tLine[2]{
+	LINEPOINT	tLine[6]{
 		{ 0.f, 380.f },
-		{ 7000.f, 380.f }
+		{ 1500.f, 380.f },
+		{ 1600.f, 380.f },
+		{ 4400.f, 380.f },
+		{ 4600.f, 380.f },
+		{ 10000.f, 380.f }
 	};
 
 	LINEPOINT	tLine2[2]{
-		{350.f,300.f},
+		{350.f, 300.f},
 		{450.f, 300.f}
 	};
-		
-	m_LineList.push_back(new CLine(tLine[0], tLine[1]));
-	m_LineList.push_back(new CLine(tLine2[0], tLine2[1]));
+
+
+	if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_STAGE)
+	{
+		m_LineList.push_back(new CLine(tLine[0], tLine[1]));
+		m_LineList.push_back(new CLine(tLine[2], tLine[3]));
+		m_LineList.push_back(new CLine(tLine[4], tLine[5]));
+	}
+	else if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_LOBY)
+	{
+		m_LineList.push_back(new CLine(tLine2[0], tLine2[1]));
+	}
 }
 
 void CLineMgr::Render(HDC hDC)
 {
-	/*for (auto& iter : m_LineList)
-		iter->Render(hDC);*/
+	for (auto& iter : m_LineList)
+		iter->Render(hDC);
 }
 
 void CLineMgr::Release(void)

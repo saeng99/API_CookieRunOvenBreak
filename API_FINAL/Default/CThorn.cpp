@@ -35,7 +35,7 @@ int CThorn::Update(void)
 
 void CThorn::Late_Update(void)
 {
-	m_tInfo.fX-= 4.f;
+	//m_tInfo.fX-= 4.f;
 }
 
 void CThorn::Render(HDC hDC)
@@ -57,7 +57,7 @@ void CThorn::Render(HDC hDC)
 		70,
 		RGB(255, 0, 255));
 
-	Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
+	//Rectangle(hDC, m_tInfo.fX - (m_tInfo.fCX * 0.5f), m_tInfo.fY - (m_tInfo.fCY * 0.5f), m_tInfo.fX + (m_tInfo.fCX * 0.5f), m_tInfo.fY + (m_tInfo.fCY * 0.5f));
 }
 
 void CThorn::Release(void)
