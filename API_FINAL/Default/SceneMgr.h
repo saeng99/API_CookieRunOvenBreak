@@ -7,6 +7,7 @@
 #include "CLoby.h"
 #include "CTutorial.h"
 #include "CScoreBoard.h"
+#include "CEnding.h"
 
 class CSceneMgr
 {

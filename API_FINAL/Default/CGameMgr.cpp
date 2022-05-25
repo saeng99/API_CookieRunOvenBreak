@@ -33,8 +33,8 @@ void CGameMgr::Initialize(void)
 		m_iSceneNo = 0;
 		m_tInfo.fX = 20.f;
 		m_tInfo.fY = 20.f;
-		m_vecScoreNumber.push_back(new CNumber(m_tInfo.fX + 100, m_tInfo.fY + 5));
-		m_vecCoinNumber.push_back(new CNumber(m_tInfo.fX + 100, m_tInfo.fY + 35));
+		m_vecScoreNumber.push_back(new CNumber(m_tInfo.fX + 120, m_tInfo.fY + 5));
+		m_vecCoinNumber.push_back(new CNumber(m_tInfo.fX + 120, m_tInfo.fY + 35));
 		m_vecScoreNumberBig.push_back(new CNumberBig(m_tInfo.fX + 1000, m_tInfo.fY + 700));
 	}
 	else if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_SCOREBOARD)
@@ -44,7 +44,7 @@ void CGameMgr::Initialize(void)
 		m_tInfo.fY = 250.f;
 		m_vecScoreNumber.push_back(new CNumber(m_tInfo.fX + 1000, m_tInfo.fY + 700));
 		m_vecCoinNumber.push_back(new CNumber(m_tInfo.fX + 300, m_tInfo.fY + 50));
-		m_vecScoreNumberBig.push_back(new CNumberBig(m_tInfo.fX + 100, m_tInfo.fY - 50));
+		m_vecScoreNumberBig.push_back(new CNumberBig(m_tInfo.fX + 50, m_tInfo.fY - 70));
 	}
 
 	

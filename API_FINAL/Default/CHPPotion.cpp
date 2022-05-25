@@ -26,6 +26,7 @@ void CHPPotion::Initialize(void)
 	m_tFrame.iMotion = 3;
 	m_tFrame.dwSpeed = 180;
 	m_tFrame.dwTime = GetTickCount();
+
 }
 
 int CHPPotion::Update(void)
