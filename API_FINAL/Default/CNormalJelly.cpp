@@ -45,8 +45,6 @@ int CNormalJelly::Update(void)
 
 void CNormalJelly::Late_Update(void)
 {
-	//m_tInfo.fX -= 4.f;
-
 	Move_Frame();
 }
 

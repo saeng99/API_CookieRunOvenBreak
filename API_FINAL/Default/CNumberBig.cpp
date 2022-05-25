@@ -7,7 +7,7 @@ CNumberBig::CNumberBig()
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 45.f;
 
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bignumber222.bmp", L"BigNumber");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bignumber2222.bmp", L"BigNumber");
 	m_pFrameKey = L"BigNumber";
 	m_iNum = 0;
 }
@@ -20,7 +20,7 @@ CNumberBig::CNumberBig(float fX, float fY)
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 45.f;
 
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bignumber222.bmp", L"BigNumber");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bignumber2222.bmp", L"BigNumber");
 	m_pFrameKey = L"BigNumber";
 	m_iNum = 0;
 }

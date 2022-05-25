@@ -152,7 +152,10 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CBearJelly.h" />
     <ClInclude Include="CBlock.h" />
+    <ClInclude Include="CBlockk.h" />
     <ClInclude Include="CComingUpThorn.h" />
+    <ClInclude Include="CEnding.h" />
+    <ClInclude Include="CFlag.h" />
     <ClInclude Include="CFork.h" />
     <ClInclude Include="CGameMgr.h" />
     <ClInclude Include="CGoldenCoin.h" />
@@ -211,7 +214,10 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CBearJelly.cpp" />
     <ClCompile Include="CBlock.cpp" />
+    <ClCompile Include="CBlockk.cpp" />
     <ClCompile Include="CComingUpThorn.cpp" />
+    <ClCompile Include="CEnding.cpp" />
+    <ClCompile Include="CFlag.cpp" />
     <ClCompile Include="CFork.cpp" />
     <ClCompile Include="CGameMgr.cpp" />
     <ClCompile Include="CGoldenCoin.cpp" />

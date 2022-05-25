@@ -58,6 +58,8 @@ private:
 
 	DWORD	m_dwDeathMotionTime;
 
+	bool	m_bOffset;
+
 
 
 };

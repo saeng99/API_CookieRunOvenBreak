@@ -44,7 +44,7 @@ void CComingUpThorn::Late_Update(void)
 {
 	//m_tInfo.fX -= 4.f;
 	m_pTarget = CObjMgr::Get_Instance()->Get_Player();
-	if( 250 >= abs(m_pTarget->Get_Info().fX - (m_tInfo.fX - (m_tInfo.fCX * 0.5f))))
+	if( 270 >= abs(m_pTarget->Get_Info().fX - (m_tInfo.fX - (m_tInfo.fCX * 0.5f))))
 	{
 		MoveMoment_Frame();
 	}

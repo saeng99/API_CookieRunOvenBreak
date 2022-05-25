@@ -17,13 +17,29 @@ CLineMgr::~CLineMgr()
 void CLineMgr::Initialize(void)
 {
 	//Load_Line();
-	LINEPOINT	tLine[6]{
+	LINEPOINT	tLine[22]{
 		{ 0.f, 380.f },
 		{ 1500.f, 380.f },
 		{ 1600.f, 380.f },
 		{ 4400.f, 380.f },
 		{ 4600.f, 380.f },
-		{ 10000.f, 380.f }
+		{ 5800.f, 380.f },
+		{ 6000.f, 380.f },
+		{ 6100.f, 380.f },
+		{ 6300.f, 380.f },
+		{ 7200.f, 380.f },
+		{ 7350.f, 280.f },
+		{ 7450.f, 280.f },
+		{ 7600.f, 380.f },
+		{ 8800.f, 380.f },
+		{ 8900.f, 285.f },
+		{ 9000.f, 285.f },
+		{ 9150.f, 255.f },
+		{ 9250.f, 255.f },
+		{ 9400.f, 295.f },
+		{ 9600.f, 295.f },
+		{ 9700.f, 380.f },
+		{ 12000.f, 380.f }
 	};
 
 	LINEPOINT	tLine2[2]{
@@ -37,6 +53,15 @@ void CLineMgr::Initialize(void)
 		m_LineList.push_back(new CLine(tLine[0], tLine[1]));
 		m_LineList.push_back(new CLine(tLine[2], tLine[3]));
 		m_LineList.push_back(new CLine(tLine[4], tLine[5]));
+		m_LineList.push_back(new CLine(tLine[6], tLine[7]));
+		m_LineList.push_back(new CLine(tLine[8], tLine[9]));
+		m_LineList.push_back(new CLine(tLine[10], tLine[11]));
+		m_LineList.push_back(new CLine(tLine[12], tLine[13]));
+		m_LineList.push_back(new CLine(tLine[14], tLine[15]));
+		m_LineList.push_back(new CLine(tLine[16], tLine[17]));
+		m_LineList.push_back(new CLine(tLine[18], tLine[19]));
+		m_LineList.push_back(new CLine(tLine[20], tLine[21]));
+	//	m_LineList.push_back(new CLine(tLine[12], tLine[13]));
 	}
 	else if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_LOBY)
 	{
@@ -46,8 +71,8 @@ void CLineMgr::Initialize(void)
 
 void CLineMgr::Render(HDC hDC)
 {
-	for (auto& iter : m_LineList)
-		iter->Render(hDC);
+	/*for (auto& iter : m_LineList)
+		iter->Render(hDC);*/
 }
 
 void CLineMgr::Release(void)

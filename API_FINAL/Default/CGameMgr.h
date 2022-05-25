@@ -37,8 +37,8 @@ public:
 	virtual void Release(void) override;
 
 public:
-	void	PlusJelly() { m_iScore += 5; };
-	void	PlusBearJelly() { m_iScore += 50; };
+	void	PlusJelly() { m_iScore += 20; };
+	void	PlusBearJelly() { m_iScore += 100; };
 	void	PlusSilverCoin() { m_iCoin += 5; };
 	void	PlusGoldenCoin() { m_iCoin += 20; };
 	void	Update_ScoreVector();

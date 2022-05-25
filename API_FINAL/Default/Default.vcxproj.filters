@@ -160,6 +160,12 @@
     <Filter Include="02. Scene\06. ScoreBoard">
       <UniqueIdentifier>{27e96efc-4f0a-46e3-b4c7-1fe71190e81e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\10. Flag">
+      <UniqueIdentifier>{4e57fbc2-a04d-4784-9cbf-52501579da6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scene\07. Ending">
+      <UniqueIdentifier>{cc984b21-161f-48f4-a468-8d93b82f3d85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -333,6 +339,15 @@
     <ClInclude Include="CNumberBig.h">
       <Filter>98. Design\GameMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CBlockk.h">
+      <Filter>01. Obj\01. Obstacle\00. Block</Filter>
+    </ClInclude>
+    <ClInclude Include="CFlag.h">
+      <Filter>01. Obj\10. Flag</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnding.h">
+      <Filter>02. Scene\07. Ending</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -478,6 +493,15 @@
     </ClCompile>
     <ClCompile Include="CNumberBig.cpp">
       <Filter>98. Design\GameMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlockk.cpp">
+      <Filter>01. Obj\01. Obstacle\00. Block</Filter>
+    </ClCompile>
+    <ClCompile Include="CFlag.cpp">
+      <Filter>01. Obj\10. Flag</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnding.cpp">
+      <Filter>02. Scene\07. Ending</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

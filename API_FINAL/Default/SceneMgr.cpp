@@ -54,6 +54,10 @@ void CSceneMgr::Scene_Change()
 		case SC_SCOREBOARD:
 			m_pScene = new CScoreBoard;
 			break;
+
+		case SC_ENDING:
+			m_pScene = new CEnding;
+			break;
 			
 		}
 
@@ -101,6 +105,10 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 
 		case SC_SCOREBOARD:
 			m_pScene = new CScoreBoard;
+			break;
+
+		case SC_ENDING:
+			m_pScene = new CEnding;
 			break;
 		}
 

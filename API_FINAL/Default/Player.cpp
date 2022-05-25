@@ -26,13 +26,11 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize(void)
 {
-	//m_tInfo.fX = 150.f;
-	//m_tInfo.fY = 345.f;
-
 	m_tInfo.fCX = 60.f;
 	m_tInfo.fCY = 70.f;
 
 	m_fSpeed = 4.3f;
+	//m_fSpeed = 6.f;
 	m_tStatInfo.iMaxHp = 100;
 	m_tStatInfo.iHp = m_tStatInfo.iMaxHp;
 
@@ -51,6 +49,7 @@ void CPlayer::Initialize(void)
 	m_dwHitTime = long(0);
 	m_dwHitMotionTime = long(0);
 
+	m_bOffset = false;
 
 	m_eRender = RENDER_GAMEOBJECT;
 
@@ -101,13 +100,25 @@ int CPlayer::Update(void)
 		}
 	}
 
+	if (CSceneMgr::Get_Instance()->Get_SceneID() == SC_LOBY)
+	{
+		m_fSpeed = 0;
+	}
+
 	if(!m_bDead)
 		m_tInfo.fX += m_fSpeed;
 	
+	if (11200 <= m_tInfo.fX)
+		m_bOffset = true;
+
 	// 연산을 진행
 	Key_Input();
 	Jumping();
-	OffSet();
+
+	if (!m_bOffset)
+	{
+		OffSet();
+	}
 
 	Hit();
 
@@ -317,7 +328,7 @@ void CPlayer::Motion_Change(void)
 			m_tFrame.iFrameStart = 0;
 			m_tFrame.iFrameEnd = 7;
 			m_tFrame.iMotion = 1;
-			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwSpeed = 70;
 			m_tFrame.dwTime = GetTickCount();
 			break;
 
@@ -325,7 +336,7 @@ void CPlayer::Motion_Change(void)
 			m_tFrame.iFrameStart = 0;
 			m_tFrame.iFrameEnd = 8;
 			m_tFrame.iMotion = 0;
-			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwSpeed = 150;
 			m_tFrame.dwTime = GetTickCount();
 			break;
 
@@ -333,7 +344,7 @@ void CPlayer::Motion_Change(void)
 			m_tFrame.iFrameStart = 9;
 			m_tFrame.iFrameEnd = 10;
 			m_tFrame.iMotion = 0;
-			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwSpeed = 100;
 			m_tFrame.dwTime = GetTickCount();
 			break;
 
@@ -396,7 +407,7 @@ void CPlayer::Hit()
 			m_fSpeed = 4.3f;
 		}
 
-		if (GetTickCount() - m_dwHitTime > 1200)
+		if (GetTickCount() - m_dwHitTime > 1500)
 		{
 			m_bHit = false;
 			m_bHitMotionEnd = false;
